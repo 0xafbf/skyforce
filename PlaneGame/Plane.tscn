@@ -1,0 +1,132 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://PlaneGame/src/Ship.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=14]
+size = Vector3( 0.04, 0.36, 0.012 )
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=8]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 0.247, 0.123, 0.042 )
+
+[sub_resource type="ConvexPolygonShape" id=9]
+points = PoolVector3Array( 0.1235, 0.0615, 0.021, 0.1235, 0.0615, -0.021, -0.1235, 0.0615, 0.021, 0.1235, -0.0615, 0.021, 0.1235, -0.0615, -0.021, -0.1235, 0.0615, -0.021, -0.1235, -0.0615, 0.021, -0.1235, -0.0615, -0.021 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 1.2, 0.04, 0.25 )
+
+[sub_resource type="ConvexPolygonShape" id=10]
+points = PoolVector3Array( -0.6, -0.02, -0.125, -0.6, 0.02, -0.125, 0.6, -0.02, -0.125, -0.6, -0.02, 0.125, -0.6, 0.02, 0.125, 0.6, 0.02, -0.125, 0.6, -0.02, 0.125, 0.6, 0.02, 0.125 )
+
+[sub_resource type="CubeMesh" id=6]
+size = Vector3( 0.02, 0.15, 0.115 )
+
+[sub_resource type="CubeMesh" id=7]
+size = Vector3( 0.238, 0.015, 0.2 )
+
+[sub_resource type="CubeMesh" id=12]
+size = Vector3( 0.297, 0.015, 0.078 )
+
+[sub_resource type="CubeMesh" id=13]
+size = Vector3( 0.02, 0.149, 0.05 )
+
+[sub_resource type="CubeMesh" id=11]
+size = Vector3( 0.507, 0.023, 0.1 )
+
+[node name="Plane" type="RigidBody"]
+transform = Transform( 1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, 0, 0, 0 )
+mass = 0.01
+linear_damp = 0.0
+angular_damp = 4.0
+script = ExtResource( 1 )
+thrust_scale = 4.0
+lift_scale = 200.0
+drag_scale = 0.15
+stabilizer_horz_influence = 0.1
+stabilizer_vert_influence = 0.1
+roll_torque = 0.01
+pitch_torque = 0.01
+
+[node name="ThrusterPivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.029622, -0.731082 )
+
+[node name="Helice" type="MeshInstance" parent="ThrusterPivot"]
+mesh = SubResource( 14 )
+material/0 = null
+
+[node name="Fuselage" type="MeshInstance" parent="."]
+transform = Transform( 0.0424099, 0, 0, 0, 0.0721197, 0, 0, 0, 0.705335, 0, 0.029536, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="FuselageCollision" type="CollisionShape" parent="."]
+transform = Transform( 0.0424099, 0, 0, 0, 0.0721197, 0, 0, 0, 0.705335, 0, 0.029536, 0 )
+shape = SubResource( 8 )
+
+[node name="Wheels" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0841887, -0.362405 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="WheelsCollision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0841887, -0.362405 )
+shape = SubResource( 9 )
+
+[node name="Wings" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.994522, -0.104528, 0, 0.104528, 0.994522, 0, 0.108158, -0.200239 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="WingsCollision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0920653, -0.200239 )
+shape = SubResource( 10 )
+
+[node name="StabilizerVertical" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00285536, 0.149597, 0.715292 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="StabilizerHorizontal" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0947601, 0.670828 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="ElevatorPivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0946796, 0.774363 )
+
+[node name="Elevator" type="MeshInstance" parent="ElevatorPivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000483766, 0.0378965 )
+mesh = SubResource( 12 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="RudderPivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.152701, 0.772652 )
+
+[node name="Rudder" type="MeshInstance" parent="RudderPivot"]
+transform = Transform( 1, 0, 0, 0, 1, -0.000453786, 0, 0.000453786, 1, -0.00285536, 0.0373638, 0.0268183 )
+mesh = SubResource( 13 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="AileronLPivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.310795, 0.0927066, -0.0774757 )
+
+[node name="AileronL" type="MeshInstance" parent="AileronLPivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0551206 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="AileronRPivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.317627, 0.0927066, -0.0774757 )
+
+[node name="AileronR" type="MeshInstance" parent="AileronRPivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.058068 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = null

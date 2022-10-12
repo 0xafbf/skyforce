@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://grid.tres" type="Material" id=1]
+[ext_resource path="res://PlaneGame/src/Player.gd" type="Script" id=2]
+[ext_resource path="res://PlaneGame/Plane.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+material = ExtResource( 1 )
+size = Vector3( 200, 2, 100 )
+
+[sub_resource type="VisualShader" id=5]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx;
+
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Output:0
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -578.345, 33.1914 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+
+[sub_resource type="Environment" id=2]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="CSGMesh" type="CSGMesh" parent="CSGCombiner"]
+mesh = SubResource( 1 )
+material = SubResource( 6 )
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource( 2 )
+plane_path = NodePath("../Plane2")
+
+[node name="Plane2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, 0, 1.35899, 0 )
+
+[node name="Camera" type="Camera" parent="Plane2"]
+transform = Transform( 0.995114, 0, 0, 0, 0.888803, 0.447527, 0, -0.447527, 0.888803, 0, 1.24224, 2.76729 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.950206, 0.0771705, 0.301915, -0.311622, 0.235311, 0.920609, 0, -0.968852, 0.247642, -0.172724, 5.71951, 0.870591 )
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )

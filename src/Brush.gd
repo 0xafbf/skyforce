@@ -267,8 +267,6 @@ func _input(event):
 		set_mode(BrushMode.BRUSH_EDIT)
 	elif event.is_action_pressed("slot_5"):
 		set_mode(BrushMode.BRUSH_PAINT)
-	elif event.is_action_pressed("slot_6"):
-		set_mode(BrushMode.BRUSH_PORTAL)
 	elif event.is_action_pressed("preset_1"):
 		set_preset(0)
 	elif event.is_action_pressed("preset_2"):

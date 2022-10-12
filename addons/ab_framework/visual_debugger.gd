@@ -7,7 +7,7 @@ onready var camera: Camera = $Camera
 
 func _ready():
 	yield(get_tree(), "idle_frame")
-	camera.clear_current(false)
+	camera.clear_current(true)
 	
 var look_direction: Vector2 = Vector2.ZERO
 
