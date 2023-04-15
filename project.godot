@@ -82,7 +82,8 @@ _global_script_class_icons={
 
 config/name="SkyForce"
 run/main_scene="res://assets/levels/World.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://PlaneGame/ui/skyforce_screenshot.png"
+config/icon="res://PlaneGame/ui/skyforce_icon.png"
 
 [autoload]
 
@@ -93,6 +94,7 @@ VisualDebugger="*res://addons/ab_framework/visual_debugger.tscn"
 window/size/width=1280
 window/size/height=720
 window/vsync/use_vsync=false
+window/handheld/orientation="sensor_landscape"
 
 [editor_plugins]
 
@@ -201,42 +203,42 @@ Brake={
  ]
 }
 L_Left={
-"deadzone": 0.1,
+"deadzone": 0.02,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
  ]
 }
 L_Right={
-"deadzone": 0.1,
+"deadzone": 0.02,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
  ]
 }
 L_Up={
-"deadzone": 0.1,
+"deadzone": 0.02,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
  ]
 }
 L_Down={
-"deadzone": 0.1,
+"deadzone": 0.02,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
  ]
 }
 R_Left={
-"deadzone": 0.1,
+"deadzone": 0.02,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":2,"axis_value":-1.0,"script":null)
  ]
 }
 R_Right={
-"deadzone": 0.1,
+"deadzone": 0.02,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":2,"axis_value":1.0,"script":null)
  ]
 }
 R_Up={
-"deadzone": 0.1,
+"deadzone": 0.02,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":3,"axis_value":-1.0,"script":null)
  ]
 }
 R_Down={
-"deadzone": 0.1,
+"deadzone": 0.02,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":3,"axis_value":1.0,"script":null)
  ]
 }

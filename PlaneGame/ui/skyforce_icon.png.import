@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/export_add.png-f6fb3980fd3f48632375593c3938e9b9.stex"
+path="res://.import/skyforce_icon.png-16436d6711f6c8766a0a9c33149fc72d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tools/export_add.png"
-dest_files=[ "res://.import/export_add.png-f6fb3980fd3f48632375593c3938e9b9.stex" ]
+source_file="res://PlaneGame/ui/skyforce_icon.png"
+dest_files=[ "res://.import/skyforce_icon.png-16436d6711f6c8766a0a9c33149fc72d.stex" ]
 
 [params]
 
