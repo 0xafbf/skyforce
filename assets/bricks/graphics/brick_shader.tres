@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=14 format=2]
 
-[ext_resource path="res://assets/bricks/graphics/wood.png" type="Texture" id=1]
+[ext_resource path="res://assets/bricks/graphics/wood.png" type="Texture2D" id=1]
 
 
 
@@ -13,7 +13,7 @@ input_name = "normal"
 default_input_values = [ 0, Vector3( 0, 0, 0 ), 1, Vector3( 1, 1, 1 ) ]
 operator = 2
 
-[sub_resource type="VisualShaderNodeColorUniform" id=1]
+[sub_resource type="VisualShaderNodeColorParameter" id=1]
 uniform_name = "BaseColor"
 
 [sub_resource type="VisualShaderNodeTexture" id=2]
@@ -27,16 +27,16 @@ operator = 2
 output_port_for_preview = 0
 input_name = "uv"
 
-[sub_resource type="VisualShaderNodeVectorInterp" id=5]
+[sub_resource type="VisualShaderNodeMix" id=5]
 
-[sub_resource type="VisualShaderNodeVec3Uniform" id=6]
+[sub_resource type="VisualShaderNodeVec3Parameter" id=6]
 uniform_name = "BoxSize"
 
 [sub_resource type="VisualShaderNodeVectorOp" id=10]
 output_port_for_preview = 0
 operator = 3
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=11]
+[sub_resource type="VisualShaderNodeFloatConstant" id=11]
 constant = 1.0
 
 [sub_resource type="VisualShaderNodeInput" id=12]
@@ -69,4 +69,4 @@ nodes/fragment/11/node = SubResource( 8 )
 nodes/fragment/11/position = Vector2( -560, 520 )
 nodes/fragment/12/node = SubResource( 9 )
 nodes/fragment/12/position = Vector2( -380, 340 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 4, 0, 3, 0, 4, 1, 9, 0, 8, 0, 7, 0, 8, 1, 12, 0, 3, 0, 11, 0, 12, 1, 7, 0, 11, 1 )
+nodes/fragment/connections = PackedInt32Array( 2, 0, 4, 0, 3, 0, 4, 1, 9, 0, 8, 0, 7, 0, 8, 1, 12, 0, 3, 0, 11, 0, 12, 1, 7, 0, 11, 1 )

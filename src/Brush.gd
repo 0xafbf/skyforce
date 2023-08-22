@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 class_name Brush
 
@@ -6,31 +6,31 @@ class_name Brush
 
 var current_mode = BrushMode.BRUSH_OFF
 
-export var build_mat: Material
-export var destroy_mat: Material
-export var edit_mat: Material
-export var editing_mat: Material
-export var paint_mat: Material
+@export var build_mat: Material
+@export var destroy_mat: Material
+@export var edit_mat: Material
+@export var editing_mat: Material
+@export var paint_mat: Material
 
 var spawn_rotation = 0.0
 var snap_size = 0.5
 
 var target: Brick
-onready var brush_mesh = $BrushMesh
+@onready var brush_mesh = $BrushMesh
 
 
 func set_target(in_target):
 	target = in_target
 	if (target):
-		extents = target.extents
+		size = target.size
 	else:
 		# extents = Vector3(1,1,1)
 		$ResizeHandle.visible = false
-	set_extents(extents)
+	set_extents(size)
 
 func set_extents(in_extents: Vector3):
-	extents = in_extents.abs()
-	brush_mesh.scale = extents + Vector3(0.02, 0.02, 0.02)
+	size = in_extents.abs()
+	brush_mesh.scale = size + Vector3(0.02, 0.02, 0.02)
 
 func _ready():
 	set_target(null)
@@ -57,12 +57,12 @@ func set_mode(new_mode):
 		$BrushUI.set_paint_id(active_skin)
 
 
-var extents = Vector3(1,1,1)
+var size = Vector3(1,1,1)
 func snap_to_position_and_direction(in_position: Vector3, in_direction: Vector3):
-	var local_direction = transform.basis.xform_inv(in_direction)
-	var local_offset = local_direction * extents
-	var world_offset = transform.basis.xform(local_offset)
-	translation = in_position + world_offset
+	var local_direction = (in_direction) * transform.basis
+	var local_offset = local_direction * size
+	var world_offset = transform.basis * (local_offset)
+	position = in_position + world_offset
 
 var last_hit_position
 func aim_brush(from_position: Vector3, direction: Vector3):
@@ -76,7 +76,7 @@ func aim_brush(from_position: Vector3, direction: Vector3):
 		if resize_current_point == null:
 			return
 		var resize_delta = resize_current_point - last_hit_position
-		var local_resize_delta = transform.basis.xform_inv(resize_delta)
+		var local_resize_delta = (resize_delta) * transform.basis
 		local_resize_delta *= resize_axis
 		#local_resize_delta /= snap_size
 		var resize_coords = Vector3()
@@ -87,17 +87,17 @@ func aim_brush(from_position: Vector3, direction: Vector3):
 
 		var final_extents = resize_previous_extents + resize_coords
 		set_extents(final_extents)
-		translation = resize_starting_point + transform.basis.xform(resize_coords * resize_axis)
+		position = resize_starting_point + transform.basis * (resize_coords * resize_axis)
 
-		var arrow_position = transform.xform_inv(resize_current_point)
+		var arrow_position = (resize_current_point) * transform
 		arrow_position -= arrow_position.project(resize_axis)
-		arrow_position += resize_axis * extents
-		$ResizeHandle.translation = arrow_position
+		arrow_position += resize_axis * size
+		$ResizeHandle.position = arrow_position
 
 		return
 
 	var to = from_position + (direction * 100)
-	var space_state = get_world().direct_space_state
+	var space_state = get_world_3d().direct_space_state
 	var hit_result = space_state.intersect_ray(from_position, to)
 
 
@@ -122,22 +122,22 @@ func aim_brush(from_position: Vector3, direction: Vector3):
 
 		elif current_mode == BrushMode.BRUSH_DESTROY:
 			rotation = brick.rotation
-			translation = brick.translation
+			position = brick.position
 			set_target(brick)
 		elif current_mode == BrushMode.BRUSH_EDIT:
 			rotation = brick.rotation
-			translation = brick.translation
+			position = brick.position
 			set_target(brick)
 			setup_resize(hit_result)
 		elif current_mode == BrushMode.BRUSH_PAINT:
 			rotation = brick.rotation
-			translation = brick.translation
+			position = brick.position
 			set_target(brick)
 
 	else:
 		set_target(null)
 		rotation.y = spawn_rotation
-		translation = hit_result.position
+		position = hit_result.position
 
 var resize_margin = 0.4
 var resize_normal_axis: Vector3
@@ -149,7 +149,7 @@ var resize_starting_point: Vector3
 func setup_resize(hit_result):
 	var world_position = hit_result.position
 	var local_coordinates = to_local(world_position)
-	var cube_coordinates = local_coordinates / extents
+	var cube_coordinates = local_coordinates / size
 	var abs_cube_coordinates = Vector3(abs(cube_coordinates.x), abs(cube_coordinates.y), abs(cube_coordinates.z))
 
 	var major_axis = abs_cube_coordinates.max_axis()
@@ -160,7 +160,7 @@ func setup_resize(hit_result):
 
 	var handle = $ResizeHandle
 
-	var distance_from_margin = extents[second_axis] - abs(local_coordinates[second_axis])
+	var distance_from_margin = size[second_axis] - abs(local_coordinates[second_axis])
 	if distance_from_margin < resize_margin:
 		# near to the edge, suggest resize in WS edge direction
 		handle.visible = true
@@ -169,11 +169,11 @@ func setup_resize(hit_result):
 
 		resize_normal_axis = Vector3()
 		resize_normal_axis[major_axis] = sign(local_coordinates[major_axis])
-		resize_grab_point[major_axis] = sign(local_coordinates[major_axis]) * extents[major_axis]
-		resize_grab_point[second_axis] = sign(local_coordinates[second_axis]) * extents[second_axis]
+		resize_grab_point[major_axis] = sign(local_coordinates[major_axis]) * size[major_axis]
+		resize_grab_point[second_axis] = sign(local_coordinates[second_axis]) * size[second_axis]
 		resize_grab_point[minor_axis] = local_coordinates[minor_axis]
 
-		handle.translation = resize_grab_point
+		handle.position = resize_grab_point
 		var resize_right = resize_axis.cross(resize_normal_axis)
 		handle.transform.basis = Basis(resize_right, resize_normal_axis, resize_axis)
 
@@ -185,12 +185,12 @@ func setup_resize(hit_result):
 		resize_normal_axis = Vector3()
 		resize_normal_axis[second_axis] = sign(local_coordinates[second_axis])
 
-		handle.translation = local_coordinates
+		handle.position = local_coordinates
 		var resize_right = resize_axis.cross(resize_normal_axis)
 		handle.transform.basis = Basis(resize_right, resize_normal_axis, resize_axis)
 
 
-	return transform.basis.xform(suggested_direction)
+	return transform.basis * (suggested_direction)
 
 var resize_plane: Plane
 
@@ -201,18 +201,18 @@ func start_resize():
 
 	current_mode = BrushMode.BRUSH_EDITING
 
-	var plane_normal = transform.basis.xform(resize_normal_axis)
+	var plane_normal = transform.basis * (resize_normal_axis)
 	var plane_distance = last_hit_position.dot(plane_normal)
 
 	resize_plane = Plane(plane_normal, plane_distance )#.length())
-	resize_previous_extents = extents
-	resize_starting_point = translation
+	resize_previous_extents = size
+	resize_starting_point = position
 
 
 
 func stop_resize():
-	target.set_extents(extents)
-	target.translation = translation
+	target.set_extents(size)
+	target.position = position
 	set_mode(BrushMode.BRUSH_EDIT)
 
 var brick_template = preload("res://assets/bricks/Brick.tscn")
@@ -223,10 +223,10 @@ func fire():
 		return
 
 	if current_mode == BrushMode.BRUSH_BUILD:
-		var new_brick = brick_template.instance()
-		new_brick.translation = translation
+		var new_brick = brick_template.instantiate()
+		new_brick.position = position
 		new_brick.rotation = rotation
-		new_brick.set_extents(extents)
+		new_brick.set_extents(size)
 		get_tree().get_root().add_child(new_brick)
 	elif current_mode == BrushMode.BRUSH_DESTROY:
 		if target:
@@ -288,7 +288,7 @@ func _input(event):
 			spawn_rotation -= (TAU/rotation_snaps)
 
 
-export(Array, Vector3) var presets
+@export var presets # (Array, Vector3)
 func set_preset(preset_idx):
 	var preset = presets[preset_idx]
 	set_extents(preset)

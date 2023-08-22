@@ -6,9 +6,9 @@ enum InputMode {
 }
 
 const Ship = preload("res://PlaneGame/src/Ship.gd")
-export var plane_path: NodePath
-onready var plane: Ship = get_node(plane_path)
-export(InputMode) var input_mode = InputMode.Mode1
+@export var plane_path: NodePath
+@onready var plane: Ship = get_node(plane_path)
+@export var input_mode: InputMode = InputMode.Mode1
 
 # var input_thrust: float
 
@@ -25,19 +25,19 @@ func _process(delta):
 		plane.rotation_degrees.z = 0
 		
 	
+	var lx := Input.get_axis("L_Left", "L_Right")
+	var ly := Input.get_axis("L_Down", "L_Up")
+	var rx := Input.get_axis("R_Left", "R_Right")
+	var ry := Input.get_axis("R_Down", "R_Up")
 	
 	if input_mode == InputMode.Mode1:
-		# LX: Rudder, LY: Elevator
-		plane.in_rudder = Input.get_action_strength("L_Right") - Input.get_action_strength("L_Left")
-		plane.in_elevator = Input.get_action_strength("L_Up") - Input.get_action_strength("L_Down")
-		# RX: Ailerons, RY: Thrust
-		plane.in_ailerons = Input.get_action_strength("R_Right") - Input.get_action_strength("R_Left")
-		plane.in_thrust = Input.get_action_strength("R_Up") - Input.get_action_strength("R_Down")
+		plane.in_rudder = lx
+		plane.in_elevator = ly
+		plane.in_ailerons = rx
+		plane.in_thrust = ry
 	elif input_mode == InputMode.Mode2:	
-		# LX: Rudder, LY: Elevator
-		plane.in_rudder = Input.get_action_strength("L_Right") - Input.get_action_strength("L_Left")
-		plane.in_thrust = Input.get_action_strength("L_Up") - Input.get_action_strength("L_Down")
-		# RX: Ailerons, RY: Thrust
-		plane.in_ailerons = Input.get_action_strength("R_Right") - Input.get_action_strength("R_Left")
-		plane.in_elevator = Input.get_action_strength("R_Up") - Input.get_action_strength("R_Down")
+		plane.in_rudder = lx
+		plane.in_thrust = ly
+		plane.in_ailerons = rx
+		plane.in_elevator = ry
 	

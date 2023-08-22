@@ -2,7 +2,7 @@ extends Control
 
 # export(Array, NodePath) var slots
 
-onready var slots_nodes = {
+@onready var slots_nodes = {
 	BrushMode.BRUSH_OFF: $ColorRect2/HBoxContainer/IconToolNone,
 	BrushMode.BRUSH_BUILD: $ColorRect2/HBoxContainer/IconToolAdd,
 	BrushMode.BRUSH_DESTROY: $ColorRect2/HBoxContainer/IconToolDelete,
@@ -17,8 +17,8 @@ func _ready():
 		assert(node is TextureRect)
 		node.self_modulate = inactive_color
 
-export var active_color: Color
-export var inactive_color: Color
+@export var active_color: Color
+@export var inactive_color: Color
 
 var active_slot: TextureRect
 func set_brush_mode(new_mode):

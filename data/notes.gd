@@ -1,11 +1,11 @@
-tool
+@tool
 extends Resource
 
 var Note = preload("res://data/note.gd")
 
-export var notes: PoolStringArray = []
+@export var notes: PackedStringArray = []
 
-export var notes2: Array = []
+@export var notes2: Array = []
 
 func custom_editor(imgui: ImGui):
 	imgui.begin()
@@ -27,7 +27,7 @@ func custom_editor(imgui: ImGui):
 		notes.append("")
 
 	if imgui.get_dirty():
-		property_list_changed_notify()
+		notify_property_list_changed()
 	return
 ###########################3
 	var num_notes = len(notes)
@@ -52,4 +52,4 @@ func custom_editor(imgui: ImGui):
 		notes[idx] = note
 		#imgui.pop_id()
 	if imgui.get_dirty():
-		property_list_changed_notify()
+		notify_property_list_changed()

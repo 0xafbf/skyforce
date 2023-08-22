@@ -3,3 +3,5 @@
 !/build/.gdignore
 .import
 .DS_Store
+.godot
+/bin

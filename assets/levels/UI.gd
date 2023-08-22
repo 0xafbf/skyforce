@@ -3,29 +3,29 @@ extends Control
 const plane_class = preload("res://PlaneGame/src/Ship.gd")
 const player_class = preload("res://PlaneGame/src/Player.gd")
 
-export var plane_path: NodePath
-onready var plane: plane_class = get_node(plane_path)
+@export var plane_path: NodePath
+@onready var plane: plane_class = get_node(plane_path)
 
-export var player_path: NodePath
-onready var player: player_class = get_node(player_path)
+@export var player_path: NodePath
+@onready var player: player_class = get_node(player_path)
 
 
-onready var thrust_fill = $Thrust/Fill
-onready var elevator_fill = $Elevator/Fill
-onready var ailerons_fill = $Ailerons/Fill
-onready var rudder_fill = $Rudder/Fill
-onready var thrust_text = $Thrust/Text
-onready var elevator_text = $Elevator/Text
-onready var ailerons_text = $Ailerons/Text
-onready var rudder_text = $Rudder/Text
-onready var label_mode = $LabelMode
+@onready var thrust_fill = $Thrust/Fill
+@onready var elevator_fill = $Elevator/Fill
+@onready var ailerons_fill = $Ailerons/Fill
+@onready var rudder_fill = $Rudder/Fill
+@onready var thrust_text = $Thrust/Text
+@onready var elevator_text = $Elevator/Text
+@onready var ailerons_text = $Ailerons/Text
+@onready var rudder_text = $Rudder/Text
+@onready var label_mode = $LabelMode
 
 func _unhandled_input(event):
 	if event is InputEventKey:
 		var key_event: InputEventKey = event
-		if key_event.scancode == KEY_ESCAPE:
+		if key_event.keycode == KEY_ESCAPE:
 			get_tree().quit()
-			get_tree().set_input_as_handled()
+			get_viewport().set_input_as_handled()
 
 func _process(delta):
 	

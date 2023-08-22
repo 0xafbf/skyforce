@@ -1,14 +1,14 @@
 
-extends KinematicBody
+extends CharacterBody3D
 class_name Character
 
-onready var brick_ghost_template = load("res://assets/player/Brush.tscn")
+@onready var brick_ghost_template = load("res://assets/player/Brush.tscn")
 var brush: Brush
 
 func _ready():
 	get_brush()
 
-export var cam_speed = 0.003
+@export var cam_speed = 0.003
 var pitch = 0
 var yaw = 0
 
@@ -28,7 +28,7 @@ func _unhandled_input(event):
 
 func get_brush():
 	if !brush:
-		brush = brick_ghost_template.instance()
+		brush = brick_ghost_template.instantiate()
 		add_brush_to_root()
 	return brush
 
@@ -43,9 +43,9 @@ func fire():
 func jump():
 	last_velocity.y = jump_speed
 
-export var speed = 3.0
-export var gravity = Vector3(0, -10, 0);
-export var jump_speed = 6
+@export var speed = 3.0
+@export var gravity = Vector3(0, -10, 0);
+@export var jump_speed = 6
 
 var last_velocity = Vector3(0,0,0)
 
@@ -78,13 +78,15 @@ func calc_movement(delta):
 
 	var velocity_total = velocity_horizontal + Vector3(0, velocity_vertical, 0)
 
-	last_velocity = move_and_slide(velocity_total)
+	set_velocity(velocity_total)
+	move_and_slide()
+	last_velocity = velocity
 
 func do_raycast():
 
 	if brush:
 
-		var camera = $CameraArm/Camera
+		var camera = $CameraArm/Camera3D
 		var ray_coords = get_viewport().size * 0.5
 		var from = camera.project_ray_origin(ray_coords)
 		var direction = camera.project_ray_normal(ray_coords)

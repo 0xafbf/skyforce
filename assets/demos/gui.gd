@@ -1,6 +1,6 @@
 extends Node
 
-onready var imgui: ImGui = VisualDebugger.imgui
+@onready var imgui: ImGui = VisualDebugger.imgui
 
 var count = 0
 var scores = [3, 5, 6]

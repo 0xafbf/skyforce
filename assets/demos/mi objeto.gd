@@ -1,7 +1,7 @@
-extends Spatial
+extends Node3D
 
 
-onready var imgui = VisualDebugger.imgui
+@onready var imgui = VisualDebugger.imgui
 
 var x = 5
 var y = 8

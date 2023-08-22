@@ -1,17 +1,17 @@
-extends Camera
+extends Camera3D
 
-export var target_path: NodePath
-onready var target = get_node(target_path)
+@export var target_path: NodePath
+@onready var target = get_node(target_path)
 
-export var distance: float = 5
+@export var distance: float = 5
 var pitch: float = 15
-export var pitch_speed_deg_s: float = 90
-export var yaw_speed_deg_s: float = 90
+@export var pitch_speed_deg_s: float = 90
+@export var yaw_speed_deg_s: float = 90
 var yaw: float = -90
 
 # mouse speeds are given in degrees per pixel
-export var pitch_speed_deg_px: float = 1
-export var yaw_speed_deg_px: float = 1
+@export var pitch_speed_deg_px: float = 1
+@export var yaw_speed_deg_px: float = 1
 
 var last_valid_yaw: float = 0
 
@@ -21,7 +21,7 @@ func _input(event):
 		var delta = motion_event.relative
 		# pitch += delta.y * pitch_speed_deg_px
 		# yaw += -delta.x * yaw_speed_deg_px
-		get_tree().set_input_as_handled()
+		get_viewport().set_input_as_handled()
 		
 
 func _process(delta):
@@ -54,14 +54,14 @@ func _process(delta):
 	pitch += dy * pitch_speed_deg_s * delta
 	yaw -= dx * yaw_speed_deg_s * delta
 
-	var pos_y = sin(deg2rad(pitch))
-	var base_hx = cos(deg2rad(pitch))
+	var pos_y = sin(deg_to_rad(pitch))
+	var base_hx = cos(deg_to_rad(pitch))
 	
-	var final_yaw = deg2rad(yaw) + last_valid_yaw
+	var final_yaw = deg_to_rad(yaw) + last_valid_yaw
 	var pos_x = sin(final_yaw) * base_hx
 	var pos_z = cos(final_yaw) * base_hx
-	translation = target.translation + Vector3(pos_x, pos_y, pos_z) * distance
+	position = target.position + Vector3(pos_x, pos_y, pos_z) * distance
 	#look_at(get_parent().translation, parent.transform.basis * Vector3.UP)
-	look_at(target.translation, Vector3.UP)
+	look_at(target.position, Vector3.UP)
 	
 

@@ -20,14 +20,14 @@ func set_mouse_mode(mouse_mode):
 func _input(event):
 	var key_event = event as InputEventKey
 	if key_event && key_event.pressed:
-		if key_event.scancode == KEY_ESCAPE:
+		if key_event.keycode == KEY_ESCAPE:
 			var current_mode = Input.get_mouse_mode()
 			if current_mode == Input.MOUSE_MODE_VISIBLE:
 				set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			else:
 				set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		if key_event.scancode == KEY_F11:
-			OS.window_fullscreen = !OS.window_fullscreen
+		if key_event.keycode == KEY_F11:
+			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
 
 # this is to capture after gui processed
 
@@ -48,7 +48,7 @@ func _on_MenuButton_about_to_show():
 	var new_popup = menu_btn.get_popup()
 	if popup != new_popup:
 		popup = new_popup
-		popup.connect("id_pressed", self, "menu_selected")
+		popup.connect("id_pressed", Callable(self, "menu_selected"))
 
 
 func menu_selected(id: int):
@@ -68,13 +68,13 @@ func clear_world():
 		node.queue_free()
 		# TODO: load template? not if called from load_world
 
-func get_world():
+func get_world_3d():
 	return get_node("/root/World")
 
 
-export(PackedScene) var brick_template
+@export var brick_template: PackedScene
 
-export var world_name = "default"
+@export var world_name = "default"
 
 func load_world():
 	print("loading world")
@@ -85,7 +85,7 @@ func load_world():
 		print("warning: loading path %s not found" % save_path)
 		return
 
-	var world = get_world()
+	var world = get_world_3d()
 
 	clear_world()
 
@@ -93,9 +93,11 @@ func load_world():
 
 	var json_text = save_game.get_line()
 
-	var world_data = parse_json(json_text)
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(json_text)
+	var world_data = test_json_conv.get_data()
 	for brick_data in world_data["blocks"]:
-		var brick_object = brick_template.instance() as Brick
+		var brick_object = brick_template.instantiate() as Brick
 		brick_object.deserialize(brick_data)
 		world.call_deferred("add_child", brick_object)
 		print("restored:%s in world:%s"%[brick_object, world])
@@ -118,7 +120,7 @@ func save_world():
 		"world_name": world_name,
 		"blocks": block_list
 	}
-	var json_data = to_json(world_data)
+	var json_data = JSON.new().stringify(world_data)
 	save_game.store_line(json_data)
 
 
@@ -129,9 +131,9 @@ var level_list = []
 func _on_LevelsMenu_about_to_show():
 	level_list = []
 	var saves_dir = "user://"
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	dir.open(saves_dir)
-	dir.list_dir_begin(true, true)
+	dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 	while true:
 		var file = dir.get_next()
 		if not file:
@@ -148,7 +150,7 @@ func _on_LevelsMenu_about_to_show():
 	for file in level_list:
 		popup.add_item(file, idx)
 		idx += 1
-	popup.connect("id_pressed", self, "_on_item_pressed")
+	popup.connect("id_pressed", Callable(self, "_on_item_pressed"))
 
 func _on_item_pressed(id):
 	world_name = level_list[id]
@@ -183,12 +185,12 @@ func drag_area_input(event):
 			print("global position:%s" % event.global_position)
 			var delta = event.global_position - last_cursor_position
 			print("delta:%s" % delta)
-			OS.window_position += delta
+			get_window().position += delta
 	elif event is InputEventMouseButton:
 		var button = event as InputEventMouseButton
 		dragging = event.pressed
 		if dragging:
-			last_window_position = OS.window_position
+			last_window_position = get_window().position
 			last_cursor_position = event.global_position
 		
 	

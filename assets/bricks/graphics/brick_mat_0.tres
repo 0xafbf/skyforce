@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=2]
 
-[ext_resource path="res://assets/player/graphics/new_shader.shader" type="Shader" id=1]
-[ext_resource path="res://assets/bricks/graphics/check.png" type="Texture" id=2]
+[ext_resource path="res://assets/player/graphics/new_shader.gdshader" type="Shader" id=1]
+[ext_resource path="res://assets/bricks/graphics/check.png" type="Texture2D" id=2]
 
 
 [resource]

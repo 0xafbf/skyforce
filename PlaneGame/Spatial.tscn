@@ -4,7 +4,7 @@
 [ext_resource path="res://PlaneGame/src/Player.gd" type="Script" id=2]
 [ext_resource path="res://PlaneGame/Plane.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="BoxMesh" id=1]
 material = ExtResource( 1 )
 size = Vector3( 200, 2, 100 )
 
@@ -37,12 +37,12 @@ shader = SubResource( 5 )
 
 [sub_resource type="Environment" id=2]
 
-[node name="Spatial" type="Spatial"]
+[node name="Node3D" type="Node3D"]
 
-[node name="CSGCombiner" type="CSGCombiner" parent="."]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
 
-[node name="CSGMesh" type="CSGMesh" parent="CSGCombiner"]
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D"]
 mesh = SubResource( 1 )
 material = SubResource( 6 )
 
@@ -51,13 +51,13 @@ script = ExtResource( 2 )
 plane_path = NodePath("../Plane2")
 
 [node name="Plane2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, 0, 1.35899, 0 )
+transform = Transform3D( 1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, 0, 1.35899, 0 )
 
-[node name="Camera" type="Camera" parent="Plane2"]
-transform = Transform( 0.995114, 0, 0, 0, 0.888803, 0.447527, 0, -0.447527, 0.888803, 0, 1.24224, 2.76729 )
+[node name="Camera3D" type="Camera3D" parent="Plane2"]
+transform = Transform3D( 0.995114, 0, 0, 0, 0.888803, 0.447527, 0, -0.447527, 0.888803, 0, 1.24224, 2.76729 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.950206, 0.0771705, 0.301915, -0.311622, 0.235311, 0.920609, 0, -0.968852, 0.247642, -0.172724, 5.71951, 0.870591 )
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D( 0.950206, 0.0771705, 0.301915, -0.311622, 0.235311, 0.920609, 0, -0.968852, 0.247642, -0.172724, 5.71951, 0.870591 )
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

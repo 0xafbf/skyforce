@@ -7,7 +7,7 @@ enum Direction {
 	West,
 }
 
-export var text: String
-export var done: bool
-export(Direction) var direction := Direction.North
+@export var text: String
+@export var done: bool
+@export var direction := Direction.North
 
