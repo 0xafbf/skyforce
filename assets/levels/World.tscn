@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://pmjlp8cmu6m4"]
+[gd_scene load_steps=17 format=3 uid="uid://pmjlp8cmu6m4"]
 
 [ext_resource type="Script" path="res://PlaneGame/src/Player.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://drib26awjkgd5" path="res://PlaneGame/Plane.tscn" id="3"]
 [ext_resource type="Script" path="res://assets/levels/Camera.gd" id="4"]
 [ext_resource type="Script" path="res://assets/levels/UI.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://bejf7jl0qljxf" path="res://PlaneGame/drone.tscn" id="5_n2ymc"]
 [ext_resource type="PackedScene" path="res://PlaneGame/art/mundo.tscn" id="6"]
+[ext_resource type="Script" path="res://PlaneGame/src/input.gd" id="6_plfo5"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_kypvj"]
 rayleigh_coefficient = 0.7
@@ -50,6 +52,9 @@ points = PackedVector3Array(-20, -1, -20, -20, 1, -20, 20, -1, -20, -20, -1, 20,
 
 [node name="World" type="Node3D"]
 
+[node name="Input" type="Node" parent="."]
+script = ExtResource("6_plfo5")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xr5l6")
 
@@ -59,6 +64,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.978735, 0.205129, 0, -0.205129, 0.978735, 0.180958, 1.0196, 9.51852)
+current = true
 fov = 100.6
 far = 1000.0
 script = ExtResource("4")
@@ -205,11 +211,6 @@ pitch_torque = 0.05
 yaw_torque = 0.05
 thruster_angular_speed = 4000.0
 
-[node name="Player" type="Node" parent="Plane"]
-script = ExtResource("1")
-plane_path = NodePath("..")
-input_mode = 1
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Plane"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0526131, -0.999362)
 visible = false
@@ -221,6 +222,27 @@ material_override = SubResource("10")
 amount = 193
 process_material = SubResource("11")
 draw_pass_1 = SubResource("12")
+
+[node name="Camera3D2" type="Camera3D" parent="Plane"]
+transform = Transform3D(0.995114, 0, 0, 0, 0.99304, -0.064217, 0, 0.064217, 0.99304, 0, 0.248796, 0)
+fov = 100.6
+far = 1000.0
+
+[node name="Player" type="Node" parent="Plane"]
+script = ExtResource("1")
+plane_path = NodePath("..")
+input_mode = 1
+
+[node name="Drone" parent="." instance=ExtResource("5_n2ymc")]
+transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, -2.62798, 0.00600052, 7.74716)
+mass = 0.4
+continuous_cd = true
+angular_damp = 10.0
+
+[node name="Camera3D2" type="Camera3D" parent="Drone"]
+transform = Transform3D(0.995114, 0, 0, 0, 0.898265, -0.428219, 0, 0.428219, 0.898265, 0, 0.0538912, 0.362609)
+fov = 100.6
+far = 1000.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

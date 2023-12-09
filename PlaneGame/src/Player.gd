@@ -5,12 +5,12 @@ enum InputMode {
 	Mode2,
 }
 
-const Ship = preload("res://PlaneGame/src/Ship.gd")
 @export var plane_path: NodePath
-@onready var plane: Ship = get_node(plane_path)
+@onready var plane: Node3D = get_parent()
 @export var input_mode: InputMode = InputMode.Mode1
 
 # var input_thrust: float
+@onready var input: SFInput = $"../../Input"
 
 func _process(delta):
 	
@@ -41,3 +41,7 @@ func _process(delta):
 		plane.in_ailerons = rx
 		plane.in_elevator = ry
 	
+	plane.in_rudder = input.yaw
+	plane.in_thrust = input.throttle * 0.5 + 0.5
+	plane.in_ailerons = input.roll
+	plane.in_elevator = input.pitch

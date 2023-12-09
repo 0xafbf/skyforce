@@ -44,8 +44,8 @@ size = Vector3(0.507, 0.023, 0.1)
 [node name="Plane" type="RigidBody3D"]
 transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, 0, 0, 0)
 mass = 0.01
-center_of_mass_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_g3gb4")
+center_of_mass_mode = 1
 angular_damp = 4.0
 script = ExtResource("1")
 thrust_scale = 4.0
