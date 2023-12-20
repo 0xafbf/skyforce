@@ -11,19 +11,15 @@ config_version=5
 [application]
 
 config/name="SkyForce"
-run/main_scene="res://assets/levels/World.tscn"
+run/main_scene="res://rcsim/scenes/entry.tscn"
 config/features=PackedStringArray("4.2")
-boot_splash/image="res://PlaneGame/ui/skyforce_screenshot.png"
-config/icon="res://PlaneGame/ui/skyforce_icon.png"
-
-[autoload]
-
-VisualDebugger="*res://addons/ab_framework/visual_debugger.tscn"
+boot_splash/image="res://rcsim/ui/skyforce_screenshot.png"
+config/icon="res://rcsim/ui/skyforce_icon.png"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1600
+window/size/viewport_height=900
 window/handheld/orientation="sensor_landscape"
 window/vsync/vsync_mode=false
 

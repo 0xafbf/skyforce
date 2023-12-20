@@ -1,0 +1,446 @@
+2022-01-29 17:45:59.460 INFO     Starting Datasmith import
+2022-01-29 17:45:59.461 INFO     loading file: C:\abotero\SkyForce\PlaneGame\art\MUNDO1.udatasmith
+2022-01-29 17:45:59.461 INFO     args: {'try_update': False, 'use_logging': True, 'log_level': 'INFO'}
+2022-01-29 17:45:59.781 INFO     loading texture: MUNDO1_Assets/Translucent_Glass_Sky_Reflection_.jpg
+2022-01-29 17:45:59.781 INFO     loading texture: MUNDO1_Assets/Stone_Pavers_Flagstone_Gray.jpg
+2022-01-29 17:45:59.781 INFO     loading texture: MUNDO1_Assets/Metal_Corrogated_Shiny.jpg
+2022-01-29 17:45:59.781 INFO     loading texture: MUNDO1_Assets/Sahat.png
+2022-01-29 17:45:59.781 INFO     loading texture: MUNDO1_Assets/Roofing_Shingles_GAF_Estates.jpg
+2022-01-29 17:45:59.781 INFO     loading texture: MUNDO1_Assets/d.PNG
+2022-01-29 17:45:59.782 INFO     loading texture: MUNDO1_Assets/Metal_Aluminum_Anodized.jpg
+2022-01-29 17:45:59.782 INFO     loading texture: MUNDO1_Assets/Wallpaper_Dog_Bone.jpg
+2022-01-29 17:45:59.782 INFO     loading texture: MUNDO1_Assets/Wood_01.jpg
+2022-01-29 17:45:59.782 INFO     loading texture: MUNDO1_Assets/Translucent_Glass_Tinted-Translucent_Glass_Tinted]1.jpg
+2022-01-29 17:45:59.782 INFO     loading texture: MUNDO1_Assets/textura-blanca-de-la-arena-19069263.jpg
+2022-01-29 17:45:59.783 INFO     finished parsing the xml, doing post process
+2022-01-29 17:45:59.783 INFO     linking textures
+2022-01-29 17:45:59.783 INFO     linking texture Translucent_Glass_Sky_Reflection_ C:\abotero\SkyForce\PlaneGame\art/MUNDO1_Assets/Translucent_Glass_Sky_Reflection_.jpg
+2022-01-29 17:45:59.784 INFO     linking texture Stone_Pavers_Flagstone_Gray C:\abotero\SkyForce\PlaneGame\art/MUNDO1_Assets/Stone_Pavers_Flagstone_Gray.jpg
+2022-01-29 17:45:59.784 INFO     linking texture Metal_Corrogated_Shiny C:\abotero\SkyForce\PlaneGame\art/MUNDO1_Assets/Metal_Corrogated_Shiny.jpg
+2022-01-29 17:45:59.784 INFO     linking texture Sahat C:\abotero\SkyForce\PlaneGame\art/MUNDO1_Assets/Sahat.png
+2022-01-29 17:45:59.785 INFO     linking texture Roofing_Shingles_GAF_Estates C:\abotero\SkyForce\PlaneGame\art/MUNDO1_Assets/Roofing_Shingles_GAF_Estates.jpg
+2022-01-29 17:45:59.785 INFO     linking texture d C:\abotero\SkyForce\PlaneGame\art/MUNDO1_Assets/d.PNG
+2022-01-29 17:45:59.785 INFO     linking texture Metal_Aluminum_Anodized C:\abotero\SkyForce\PlaneGame\art/MUNDO1_Assets/Metal_Aluminum_Anodized.jpg
+2022-01-29 17:45:59.786 INFO     linking texture Wallpaper_Dog_Bone C:\abotero\SkyForce\PlaneGame\art/MUNDO1_Assets/Wallpaper_Dog_Bone.jpg
+2022-01-29 17:45:59.786 INFO     linking texture Wood_01 C:\abotero\SkyForce\PlaneGame\art/MUNDO1_Assets/Wood_01.jpg
+2022-01-29 17:45:59.786 INFO     linking texture Translucent_Glass_Tinted-Translucent_Glass_Tinted_1 C:\abotero\SkyForce\PlaneGame\art/MUNDO1_Assets/Translucent_Glass_Tinted-Translucent_Glass_Tinted]1.jpg
+2022-01-29 17:45:59.787 INFO     linking texture textura-blanca-de-la-arena-19069263 C:\abotero\SkyForce\PlaneGame\art/MUNDO1_Assets/textura-blanca-de-la-arena-19069263.jpg
+2022-01-29 17:45:59.787 INFO     linking materials
+2022-01-29 17:45:59.787 INFO     linking material: Default-G7a1920d61156abc05a60135aefe8bc67
+2022-01-29 17:45:59.787 INFO     linking material: Object_LightGray_-G3ba7f152ee02fcf2fc050d696fc9691a
+2022-01-29 17:45:59.787 INFO     linking material: Translucent_Glass_Sky_Reflection-L5bf802ccf0122cd30cbbcc2efbb15626
+2022-01-29 17:45:59.788 ERROR    {'name': 'Translucent_Glass_Sky_Reflection_', 'filename': 'Translucent_Glass_Sky_Reflection_.jpg', 'path': 'MUNDO1_Assets/Translucent_Glass_Sky_Reflection_.jpg', 'image': bpy.data.images['Translucent_Glass_Sky_Reflection_.jpg']}
+2022-01-29 17:45:59.788 INFO     linking material: Color_009-G5b4467b76700e0fa86070f5ce8878854
+2022-01-29 17:45:59.788 INFO     linking material: Color_005-G32cf04060c3fd4414a61e19f84267b65
+2022-01-29 17:45:59.788 INFO     linking material: Color_000-G1cefcbfd5c337093cc7da225869414e8
+2022-01-29 17:45:59.788 INFO     linking material: 0061_OliveDrab-G6f9d284fff8135194781bd50ae0d1d23
+2022-01-29 17:45:59.788 INFO     linking material: 0042_Sienna-Ge0ad4feb4c9736fbc1c60f24b8a458e7
+2022-01-29 17:45:59.789 INFO     linking material: Color_A12-G63bc44817d186013bfc1be66f234fc5a
+2022-01-29 17:45:59.789 INFO     linking material: Color_A20-Gadcfab2760d46b37a136b438631e9112
+2022-01-29 17:45:59.789 INFO     linking material: 0107_MidnightBlue-Gca344285bea7da07c9a6236f499047fc
+2022-01-29 17:45:59.789 INFO     linking material: Color_D04-Gf6f5f11f1e57408a7e5cc189ff866063
+2022-01-29 17:45:59.789 INFO     linking material: Color_A25-G8f9d52d2c0bbbe3a252bf1aa214c3aed
+2022-01-29 17:45:59.789 INFO     linking material: 0053_Ivory-Gd035794232fa66b8ef23dec7e5a55c94
+2022-01-29 17:45:59.790 INFO     linking material: Stone_Pavers_Flagstone_Gray-L94d67f9f10f5b2072c27f13a22641fd2
+2022-01-29 17:45:59.790 ERROR    {'name': 'Stone_Pavers_Flagstone_Gray', 'filename': 'Stone_Pavers_Flagstone_Gray.jpg', 'path': 'MUNDO1_Assets/Stone_Pavers_Flagstone_Gray.jpg', 'image': bpy.data.images['Stone_Pavers_Flagstone_Gray.jpg']}
+2022-01-29 17:45:59.790 INFO     linking material: Metal_Corrogated_Shiny-L374bc730a4e78316fb36ca92c3951b2d
+2022-01-29 17:45:59.790 ERROR    {'name': 'Metal_Corrogated_Shiny', 'filename': 'Metal_Corrogated_Shiny.jpg', 'path': 'MUNDO1_Assets/Metal_Corrogated_Shiny.jpg', 'image': bpy.data.images['Metal_Corrogated_Shiny.jpg']}
+2022-01-29 17:45:59.790 INFO     linking material: Object_auto_2-Ge462f8bc6969915209bbf31e9966a583
+2022-01-29 17:45:59.790 INFO     linking material: Object_auto_3-G2dc90fe065d9ddaf2a419bbce9eb2d91
+2022-01-29 17:45:59.791 INFO     linking material: 0034_Wheat-Gc7bde7ffdf16066a61f4cd5055303d73
+2022-01-29 17:45:59.791 INFO     linking material: 0132_LightGray-Gebcf452bddb27be7d8ad28cfe1f5532e
+2022-01-29 17:45:59.791 INFO     linking material: 0082_LightSeaGreen-G0716c224f6387130099a880ceb325bb2
+2022-01-29 17:45:59.791 INFO     linking material: 0078_DarkSlateGray-G3182a9b509eab7767bccbde1669b8824
+2022-01-29 17:45:59.791 INFO     linking material: 0135_DarkGray-Gb4ca666c4347886458857469a845a29e
+2022-01-29 17:45:59.791 INFO     linking material: Color_F07-Ge488362b116998adb159bd22ef0031e0
+2022-01-29 17:45:59.791 INFO     linking material: Color_H07-Gfe35e56f1dec82d99bcbfc3279160e4d
+2022-01-29 17:45:59.792 INFO     linking material: 0046_Gold-G0862c16d4d1e89c26d0a4b89367fa622
+2022-01-29 17:45:59.792 INFO     linking material: Object_Black_-Gdf084f63faa1eab2aecf0d3bdc6e5df8
+2022-01-29 17:45:59.792 INFO     linking material: Object_DarkGoldenrod_-Ga4229d8b61082440340a80555d902479
+2022-01-29 17:45:59.792 INFO     linking material: Color_C05-G93a6e01a48756392b0e57f812039df92
+2022-01-29 17:45:59.792 INFO     linking material: Color_C25-G16c1343c4977054cfc568cba8a842d61
+2022-01-29 17:45:59.792 INFO     linking material: Sahat1-Lc0ef1943578c4f9fe1e2df1d1ea604c0
+2022-01-29 17:45:59.793 ERROR    {'name': 'Sahat', 'filename': 'Sahat.png', 'path': 'MUNDO1_Assets/Sahat.png', 'image': bpy.data.images['Sahat.png']}
+2022-01-29 17:45:59.793 INFO     linking material: Object_Ivory_-G52711d8dfee6192be9c3691b5d10ebdb
+2022-01-29 17:45:59.793 INFO     linking material: Color_D07-G5671957695cb2af60c67355877758046
+2022-01-29 17:45:59.793 INFO     linking material: Roofing_Shingles_GAF_Estates-L1b9d5952140eb11a34c0a5ffb787fa8e
+2022-01-29 17:45:59.794 ERROR    {'name': 'Roofing_Shingles_GAF_Estates', 'filename': 'Roofing_Shingles_GAF_Estates.jpg', 'path': 'MUNDO1_Assets/Roofing_Shingles_GAF_Estates.jpg', 'image': bpy.data.images['Roofing_Shingles_GAF_Estates.jpg']}
+2022-01-29 17:45:59.794 INFO     linking material: CoolGray8-G4d54840ae3f9d063f778c49bb1eb648e
+2022-01-29 17:45:59.794 INFO     linking material: 0043_SaddleBrown-G5c241f43a2a7f166f252833a7cab7e6a
+2022-01-29 17:45:59.794 INFO     linking material: 0040_Peru-G38eea238686efc62212ab8640fb60123
+2022-01-29 17:45:59.794 INFO     linking material: d-L8277e0910d750195b448797616e091ad
+2022-01-29 17:45:59.795 ERROR    {'name': 'd', 'filename': 'd.PNG', 'path': 'MUNDO1_Assets/d.PNG', 'image': bpy.data.images['d.PNG']}
+2022-01-29 17:45:59.795 INFO     linking material: Metal_Aluminum_Anodized_2-L7bae8898f84a1d95480791686b7682dd
+2022-01-29 17:45:59.795 ERROR    {'name': 'Metal_Aluminum_Anodized', 'filename': 'Metal_Aluminum_Anodized.jpg', 'path': 'MUNDO1_Assets/Metal_Aluminum_Anodized.jpg', 'image': bpy.data.images['Metal_Aluminum_Anodized.jpg']}
+2022-01-29 17:45:59.795 INFO     linking material: Color_D08-G162000e89d38bb1fdac5fc82cae91d7f
+2022-01-29 17:45:59.795 INFO     linking material: Color_B05-G080145c6743103efe98dc133dd9b29f6
+2022-01-29 17:45:59.796 INFO     linking material: Color_D05-Gbfb9f789cd320bdbb75579e70bbc93fc
+2022-01-29 17:45:59.796 INFO     linking material: Wallpaper_Dog_Bone-L445df8e66c5beaeb9334b61f01e2bb5b
+2022-01-29 17:45:59.796 ERROR    {'name': 'Wallpaper_Dog_Bone', 'filename': 'Wallpaper_Dog_Bone.jpg', 'path': 'MUNDO1_Assets/Wallpaper_Dog_Bone.jpg', 'image': bpy.data.images['Wallpaper_Dog_Bone.jpg']}
+2022-01-29 17:45:59.796 INFO     linking material: Wood_Veneer_01-L54806d255e87528df2ba9898e4957c4d
+2022-01-29 17:45:59.796 ERROR    {'name': 'Wood_01', 'filename': 'Wood_01.jpg', 'path': 'MUNDO1_Assets/Wood_01.jpg', 'image': bpy.data.images['Wood_01.jpg']}
+2022-01-29 17:45:59.797 INFO     linking material: Object_31-G0d929f1ec8da7968f5c15d554180487b
+2022-01-29 17:45:59.797 INFO     linking material: Object_33-Ge3ed461aab495a2f3253685c432a2fa2
+2022-01-29 17:45:59.797 INFO     linking material: Object_36-Gab228dd5e5170ff759200ae714c6743c
+2022-01-29 17:45:59.797 INFO     linking material: Object_Ivory_1-G7d14b4a5a7312d6825fbfa246f353538
+2022-01-29 17:45:59.797 INFO     linking material: Object_Charcoal_2-G2ecbc22afb35a5777385c62220ade914
+2022-01-29 17:45:59.797 INFO     linking material: Playground_Green-Gfea1ca360e970ef15019ec447f92976a
+2022-01-29 17:45:59.798 INFO     linking material: Playground_Blue-Ga9106dd519643e972b464c985771aa47
+2022-01-29 17:45:59.798 INFO     linking material: Translucent_Glass_Tinted_1-Ld8c3dbeee00fc2978295981fbc22b0e5
+2022-01-29 17:45:59.798 ERROR    {'name': 'Translucent_Glass_Tinted-Translucent_Glass_Tinted_1', 'filename': 'Translucent_Glass_Tinted-Translucent_Glass_Tinted]1.jpg', 'path': 'MUNDO1_Assets/Translucent_Glass_Tinted-Translucent_Glass_Tinted]1.jpg', 'image': bpy.data.images['Translucent_Glass_Tinted-Translucent_Glass_Tinted]1.jpg']}
+2022-01-29 17:45:59.798 INFO     linking material: Object_46-Laaeea56237c6786cd66f6456e770be3a
+2022-01-29 17:45:59.798 ERROR    {'name': 'textura-blanca-de-la-arena-19069263', 'filename': 'textura-blanca-de-la-arena-19069263.jpg', 'path': 'MUNDO1_Assets/textura-blanca-de-la-arena-19069263.jpg', 'image': bpy.data.images['textura-blanca-de-la-arena-19069263.jpg']}
+2022-01-29 17:45:59.799 INFO     linking material: Color_E05-G93d48b5c3c89e9a364d34fdca9c482d6
+2022-01-29 17:45:59.799 INFO     linking material: Translucent_Glass_Gray-G2e0e46024c0f1b5f5d0496be65a84811
+2022-01-29 17:45:59.799 INFO     linking material: Color_E01-Gbf438e5186c89917d638940f202ccfc9
+2022-01-29 17:45:59.799 INFO     linking meshes
+2022-01-29 17:45:59.799 INFO     linking mesh:Mdb5fe28d4759719391f400b287f8ac29_1
+2022-01-29 17:45:59.800 INFO     linking mesh:Ma2893dfa9b7e93ffd55f4623bd78ef9b_1
+2022-01-29 17:45:59.800 INFO     linking mesh:Mb5362548c6c077c5938f77c376d63748_1
+2022-01-29 17:45:59.800 INFO     linking mesh:M540f81bb92ffdf1639229b199f68bdeb_1
+2022-01-29 17:45:59.800 INFO     linking mesh:Mfff77e7bb0302192c53b069c3ce3c518_1
+2022-01-29 17:45:59.800 INFO     linking mesh:Mc151a0706917b636148a6813aaf5394f_1
+2022-01-29 17:45:59.801 INFO     linking mesh:M4734f3a69fa80efdd494172004932e83_1
+2022-01-29 17:45:59.801 INFO     linking mesh:M4734f3a69fa80efdd494172004932e83_2
+2022-01-29 17:45:59.801 INFO     linking mesh:M16ea2091c867a06c8e1526900544bc2c_1
+2022-01-29 17:45:59.801 INFO     linking mesh:M9524526d5c82c325ff59dbfed85ee71b_1
+2022-01-29 17:45:59.801 INFO     linking mesh:Md3ea6ce504a913235f554cd76efcb4e7_1
+2022-01-29 17:45:59.801 INFO     linking mesh:M3619604b35b34fc824769218122f8c2f_1
+2022-01-29 17:45:59.801 INFO     linking mesh:Mb93823e798b91f573c066d828ad3ec55_1
+2022-01-29 17:45:59.802 INFO     linking mesh:M9a0e94ac389fd77ad48589386377c94f_1
+2022-01-29 17:45:59.802 INFO     linking mesh:M1175712aa799d70619015b4026cafffa_1
+2022-01-29 17:45:59.802 INFO     linking mesh:Mbca373b101cc90ea34b2b3092ba37c22_1
+2022-01-29 17:45:59.802 INFO     linking mesh:M3b798da254f7b7827a19173026e1f23a_1
+2022-01-29 17:45:59.802 INFO     linking mesh:M5a23b8653bf1c36ab6ce17d73c6521f1_1
+2022-01-29 17:45:59.802 INFO     linking mesh:M6ebbf927ed110cc27444994e085c2e3b_1
+2022-01-29 17:45:59.803 INFO     linking mesh:M75c2110d766e28d1fac114a25a8219db_1
+2022-01-29 17:45:59.803 INFO     linking mesh:Md5c1365ac6139fdcc13d6a757561705a_1
+2022-01-29 17:45:59.803 INFO     linking mesh:Maa169ee7e79a84463da43a1333196979_1
+2022-01-29 17:45:59.803 INFO     linking mesh:M7e6d4e3b3a77e5244e9aeb169dac0418_1
+2022-01-29 17:45:59.803 INFO     linking mesh:M9ce8cd0331683af8c254588a6516ec2a_1
+2022-01-29 17:45:59.803 INFO     linking mesh:Medaf955504c8d49c3becc5aaa861c457_1
+2022-01-29 17:45:59.804 INFO     linking mesh:M13815a94b7a0efd500c46d6ad66a2d8e_1
+2022-01-29 17:45:59.804 INFO     linking mesh:M44789532ea0e90bc9533a16ed36ff92f_1
+2022-01-29 17:45:59.804 INFO     linking mesh:M0692a0b5e21437586b11834141a9fdf3_1
+2022-01-29 17:45:59.804 INFO     linking mesh:Mdd2bd69e8ebf64a1aa6d2e6d0dc5decd_1
+2022-01-29 17:45:59.805 INFO     linking mesh:M6e421fc67710e367e1516469dbb3716c_1
+2022-01-29 17:45:59.805 INFO     linking mesh:Mba56f2b89c58a1e53b4a2bf767b43d7a_1
+2022-01-29 17:45:59.805 INFO     linking mesh:M191044cc6c4f44c5e77691d6bd96fa19_1
+2022-01-29 17:45:59.805 INFO     linking mesh:M80f8233bee18f88ced67c006070e3461_1
+2022-01-29 17:45:59.805 INFO     linking mesh:Md0d6d2905e96738c76211264b9303ed9_1
+2022-01-29 17:45:59.805 INFO     linking mesh:M814499b2b016e581d79a21dd30b2bae8_1
+2022-01-29 17:45:59.806 INFO     linking mesh:Md2a86f6cfbfc65f9257ba5b826a005e9_1
+2022-01-29 17:45:59.806 INFO     linking mesh:Mf26c16cd89fceee6a3e52ea23fb19606_1
+2022-01-29 17:45:59.806 INFO     linking mesh:Mf26c16cd89fceee6a3e52ea23fb19606_2
+2022-01-29 17:45:59.806 INFO     linking mesh:Mf26c16cd89fceee6a3e52ea23fb19606_3
+2022-01-29 17:45:59.806 INFO     linking mesh:Mbdfbff0ad9a1ded9163c811ba481b82e_1
+2022-01-29 17:45:59.806 INFO     linking mesh:Mc1e1af7ac45a3b9d28baa0a28d5cc165_1
+2022-01-29 17:45:59.806 INFO     linking mesh:Mb593cec28b0744042c44922c68c7ff54_1
+2022-01-29 17:45:59.806 INFO     linking mesh:Mfdeabc7ea15d1f688b58972a457d89f2_1
+2022-01-29 17:45:59.807 INFO     linking mesh:Md64b3b762dbba5423389ebd78d23141b_1
+2022-01-29 17:45:59.807 INFO     linking mesh:M2cfb363283b3de9ea0e0cc63126e0e8e_1
+2022-01-29 17:45:59.807 INFO     linking mesh:Ma0d3a1d116936ba5e0395ecf12cb8c56_1
+2022-01-29 17:45:59.807 INFO     linking mesh:M04db04b53445615e3710efc6ba969099_1
+2022-01-29 17:45:59.807 INFO     linking mesh:Mb937f1d1a557bb5099f8fbb86f7ca794_1
+2022-01-29 17:45:59.807 INFO     linking mesh:M5b93ec209b413b0ce47fc44b8b67d6ae_1
+2022-01-29 17:45:59.807 INFO     linking mesh:M5b93ec209b413b0ce47fc44b8b67d6ae_2
+2022-01-29 17:45:59.808 INFO     linking mesh:M5b93ec209b413b0ce47fc44b8b67d6ae_3
+2022-01-29 17:45:59.808 INFO     linking mesh:M5b93ec209b413b0ce47fc44b8b67d6ae_4
+2022-01-29 17:45:59.808 INFO     linking mesh:M8795239c8a82917327ca296dfbaeead6_1
+2022-01-29 17:45:59.808 INFO     linking mesh:M69a008e0728f942172b4b319449bcd57_1
+2022-01-29 17:45:59.808 INFO     linking mesh:M718b3ad6f3d5a97a36b9dd749c25bb3a_1
+2022-01-29 17:45:59.808 INFO     linking mesh:Mdff542120f931351d1867b9f15e60dc0_1
+2022-01-29 17:45:59.808 INFO     linking mesh:M8dacddcbd3ea8d99f0a03dec3bd25a8f_1
+2022-01-29 17:45:59.809 INFO     linking mesh:M8dacddcbd3ea8d99f0a03dec3bd25a8f_2
+2022-01-29 17:45:59.809 INFO     linking mesh:M8ac572c7bb78cdbf6d2339c9e03b604d_1
+2022-01-29 17:45:59.809 INFO     linking mesh:Mb7c6e68d9fa0d4d7205bb6c8dbd58770_1
+2022-01-29 17:45:59.809 INFO     linking mesh:Me165d463b22c7dd92d9ec532b88972e8_1
+2022-01-29 17:45:59.809 INFO     linking mesh:Meceae5c738816839fd2dd3110b733d81_1
+2022-01-29 17:45:59.809 INFO     linking mesh:Mca748d1a7ad156a00cd39333df9a6d33_1
+2022-01-29 17:45:59.810 INFO     linking mesh:M1bcbd96940da5d9974a91a60f04e71fe_1
+2022-01-29 17:45:59.810 INFO     linking mesh:M0977deea0c780246e8b5b04c6a7e7781_1
+2022-01-29 17:45:59.810 INFO     linking mesh:M01d090c534fe423632fb0f2742c6d401_1
+2022-01-29 17:45:59.810 INFO     linking mesh:M199c414a60453fa88f29ff3fd49f5898_1
+2022-01-29 17:45:59.810 INFO     linking mesh:Mc1bab3cf73f17b3a37e1bfd91c4c0e79_1
+2022-01-29 17:45:59.810 INFO     linking mesh:Mc1bab3cf73f17b3a37e1bfd91c4c0e79_2
+2022-01-29 17:45:59.811 INFO     linking mesh:Mc1bab3cf73f17b3a37e1bfd91c4c0e79_3
+2022-01-29 17:45:59.811 INFO     linking mesh:Mc1bab3cf73f17b3a37e1bfd91c4c0e79_4
+2022-01-29 17:45:59.811 INFO     linking mesh:Mc1bab3cf73f17b3a37e1bfd91c4c0e79_5
+2022-01-29 17:45:59.811 INFO     linking mesh:Mc1bab3cf73f17b3a37e1bfd91c4c0e79_6
+2022-01-29 17:45:59.811 INFO     linking mesh:Mc1bab3cf73f17b3a37e1bfd91c4c0e79_7
+2022-01-29 17:45:59.811 INFO     linking mesh:Mc1bab3cf73f17b3a37e1bfd91c4c0e79_8
+2022-01-29 17:45:59.811 INFO     linking mesh:M66ec83d06a418f8fab36455b3e727d01_1
+2022-01-29 17:45:59.812 INFO     linking mesh:M66ec83d06a418f8fab36455b3e727d01_2
+2022-01-29 17:45:59.812 INFO     linking mesh:Mbda1bd708f1352581b6f145b431829c5_1
+2022-01-29 17:45:59.812 INFO     linking mesh:Mbda1bd708f1352581b6f145b431829c5_2
+2022-01-29 17:45:59.812 INFO     linking mesh:Md84f7238cf4ba5ad2bd536881c015a27_1
+2022-01-29 17:45:59.812 INFO     linking mesh:M4feb1c3b3b4c81af66ca340342ebe859_1
+2022-01-29 17:45:59.812 INFO     linking mesh:M4feb1c3b3b4c81af66ca340342ebe859_2
+2022-01-29 17:45:59.812 INFO     linking mesh:M937942581562891ed108845262668488_1
+2022-01-29 17:45:59.813 INFO     linking mesh:M4475072b0b65e55492c95c993f031914_1
+2022-01-29 17:45:59.813 INFO     linking mesh:Mc83e242c424fd616d8b585a0481fbb3c_1
+2022-01-29 17:45:59.813 INFO     linking mesh:Mbb6d147331a7f3afe55f765c3b729bdd_1
+2022-01-29 17:45:59.813 INFO     linking mesh:Mbc6115c5649ef626d65c6693dd5fc54d_1
+2022-01-29 17:45:59.813 INFO     linking mesh:Mb8232c5014b47ecf1b1fe8795bfc360c_1
+2022-01-29 17:45:59.813 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_1
+2022-01-29 17:45:59.813 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_2
+2022-01-29 17:45:59.814 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_3
+2022-01-29 17:45:59.814 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_4
+2022-01-29 17:45:59.814 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_5
+2022-01-29 17:45:59.814 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_6
+2022-01-29 17:45:59.814 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_7
+2022-01-29 17:45:59.814 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_8
+2022-01-29 17:45:59.814 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_9
+2022-01-29 17:45:59.815 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_10
+2022-01-29 17:45:59.815 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_11
+2022-01-29 17:45:59.815 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_12
+2022-01-29 17:45:59.815 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_13
+2022-01-29 17:45:59.815 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_14
+2022-01-29 17:45:59.815 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_15
+2022-01-29 17:45:59.815 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_16
+2022-01-29 17:45:59.816 INFO     linking mesh:Mb5354ceda8cad6373b6da657b9314fa9_17
+2022-01-29 17:45:59.816 INFO     linking mesh:Mc5e423ca30329ff7d77a227c7d40f843_1
+2022-01-29 17:45:59.816 INFO     linking mesh:Mc5e423ca30329ff7d77a227c7d40f843_2
+2022-01-29 17:45:59.816 INFO     linking mesh:Mc5e423ca30329ff7d77a227c7d40f843_3
+2022-01-29 17:45:59.816 INFO     linking mesh:Mec2a03ba3d8c3e476395b7f261884e7a_1
+2022-01-29 17:45:59.816 INFO     linking mesh:M70e609cb5ca4b36b1c580520896bcd1f_1
+2022-01-29 17:45:59.816 INFO     linking mesh:M44420c4d437624e6042d490cdf0903e3_1
+2022-01-29 17:45:59.817 INFO     linking mesh:M52fd224ff66c883b566899bbc611867b_1
+2022-01-29 17:45:59.817 INFO     linking mesh:M2d2a42fc3f7953cd4077b08202d21ec4_1
+2022-01-29 17:45:59.817 INFO     linking mesh:Md07b62991af7c38e9b5c3a2b58569ebb_1
+2022-01-29 17:45:59.817 INFO     linking mesh:Maaab376b38a11d6a0248c889344c2a09_1
+2022-01-29 17:45:59.817 INFO     linking mesh:M7a83bfc68c72feefee6e4d1b2af59839_1
+2022-01-29 17:45:59.817 INFO     linking mesh:M3c9bd59e3983da458d7ec3ac1d3b0e5b_1
+2022-01-29 17:45:59.818 INFO     linking mesh:Mf6835c80017f52cc3e8240944a8e76fe_1
+2022-01-29 17:45:59.818 INFO     linking mesh:M6f683764b4e48ee69a56d54433bc054a_1
+2022-01-29 17:45:59.818 INFO     linking mesh:M063ea10092dba30aefadeba7afe0b010_1
+2022-01-29 17:45:59.818 INFO     linking mesh:M3c8c8181466ac02227fa6f49d732a630_1
+2022-01-29 17:45:59.818 INFO     linking mesh:M3c8c8181466ac02227fa6f49d732a630_2
+2022-01-29 17:45:59.818 INFO     linking mesh:M3c8c8181466ac02227fa6f49d732a630_3
+2022-01-29 17:45:59.818 INFO     linking mesh:Ma9f2b1eae5b362611f0ddefb5411377e_1
+2022-01-29 17:45:59.819 INFO     linking mesh:M1bd76cd97c4fa401a09694c87551e11b_1
+2022-01-29 17:45:59.819 INFO     linking mesh:M038ede7974e4310ee67d4a2eb6ef7723_1
+2022-01-29 17:45:59.819 INFO     linking mesh:Mb9cb50d7639550dfea5c463e6a501f07_1
+2022-01-29 17:45:59.819 INFO     linking mesh:Mb9cb50d7639550dfea5c463e6a501f07_2
+2022-01-29 17:45:59.819 INFO     linking mesh:Mb9cb50d7639550dfea5c463e6a501f07_3
+2022-01-29 17:45:59.819 INFO     linking mesh:Mf56549c8c14411510d5db69102e2c1ec_1
+2022-01-29 17:45:59.819 INFO     linking mesh:M6cd63f929352eead95d43ab8aef5e324_1
+2022-01-29 17:45:59.820 INFO     linking mesh:M6cd63f929352eead95d43ab8aef5e324_2
+2022-01-29 17:45:59.820 INFO     linking mesh:Mab2cea4d8b9beb8a5102de3ecdca7f4b_1
+2022-01-29 17:45:59.820 INFO     linking mesh:Mab2cea4d8b9beb8a5102de3ecdca7f4b_2
+2022-01-29 17:45:59.820 INFO     linking mesh:Mab2cea4d8b9beb8a5102de3ecdca7f4b_3
+2022-01-29 17:45:59.820 INFO     linking mesh:Mab2cea4d8b9beb8a5102de3ecdca7f4b_4
+2022-01-29 17:45:59.820 INFO     linking mesh:Mc81ceae761c2e45f5b93cffdee212f42_1
+2022-01-29 17:45:59.820 INFO     linking mesh:Mc81ceae761c2e45f5b93cffdee212f42_2
+2022-01-29 17:45:59.821 INFO     linking mesh:Mc81ceae761c2e45f5b93cffdee212f42_3
+2022-01-29 17:45:59.821 INFO     linking mesh:Mc81ceae761c2e45f5b93cffdee212f42_4
+2022-01-29 17:45:59.821 INFO     linking mesh:Mc81ceae761c2e45f5b93cffdee212f42_5
+2022-01-29 17:45:59.821 INFO     linking mesh:Mc81ceae761c2e45f5b93cffdee212f42_6
+2022-01-29 17:45:59.821 INFO     linking mesh:Mc81ceae761c2e45f5b93cffdee212f42_7
+2022-01-29 17:45:59.821 INFO     linking mesh:Mc81ceae761c2e45f5b93cffdee212f42_8
+2022-01-29 17:45:59.821 INFO     linking mesh:Mc81ceae761c2e45f5b93cffdee212f42_9
+2022-01-29 17:45:59.822 INFO     linking mesh:Mb1056a5c8ed2bfb51f7d56c1d1c06542_1
+2022-01-29 17:45:59.822 INFO     linking mesh:Mb9c3fd0dc4fa119b3786380c32135695_1
+2022-01-29 17:45:59.822 INFO     linking mesh:Mc1ae833cec24b63e091c5d3f6faeb983_1
+2022-01-29 17:45:59.822 INFO     linking mesh:Mfd473b74f1ab9e6bb0428e04c5de12c5_1
+2022-01-29 17:45:59.822 INFO     linking mesh:M8203affffd6ce8e0af8d8faba8d599fd_1
+2022-01-29 17:45:59.822 INFO     linking mesh:M747f9e3b1cfb0c54a1e4554b5759351a_1
+2022-01-29 17:45:59.823 INFO     linking mesh:M5e81c836c8353d92359fae7d300d8823_1
+2022-01-29 17:45:59.823 INFO     linking mesh:M8b7fe549284a8607fad0775602765a4c_1
+2022-01-29 17:45:59.823 INFO     linking mesh:Mef30a3f6ef99e18024f3ca093a8f528a_1
+2022-01-29 17:45:59.823 INFO     linking mesh:Mfb0af17035bdfb7c506df8d7c7447269_1
+2022-01-29 17:45:59.823 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_1
+2022-01-29 17:45:59.823 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_2
+2022-01-29 17:45:59.823 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_3
+2022-01-29 17:45:59.824 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_4
+2022-01-29 17:45:59.824 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_5
+2022-01-29 17:45:59.824 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_6
+2022-01-29 17:45:59.824 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_7
+2022-01-29 17:45:59.824 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_8
+2022-01-29 17:45:59.824 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_9
+2022-01-29 17:45:59.825 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_10
+2022-01-29 17:45:59.825 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_11
+2022-01-29 17:45:59.825 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_12
+2022-01-29 17:45:59.825 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_13
+2022-01-29 17:45:59.825 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_14
+2022-01-29 17:45:59.825 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_15
+2022-01-29 17:45:59.825 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_16
+2022-01-29 17:45:59.826 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_17
+2022-01-29 17:45:59.826 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_18
+2022-01-29 17:45:59.826 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_19
+2022-01-29 17:45:59.826 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_20
+2022-01-29 17:45:59.826 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_21
+2022-01-29 17:45:59.826 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_22
+2022-01-29 17:45:59.826 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_23
+2022-01-29 17:45:59.827 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_24
+2022-01-29 17:45:59.827 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_25
+2022-01-29 17:45:59.827 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_26
+2022-01-29 17:45:59.827 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_27
+2022-01-29 17:45:59.827 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_28
+2022-01-29 17:45:59.827 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_29
+2022-01-29 17:45:59.828 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_30
+2022-01-29 17:45:59.828 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_31
+2022-01-29 17:45:59.828 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_32
+2022-01-29 17:45:59.828 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_33
+2022-01-29 17:45:59.828 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_34
+2022-01-29 17:45:59.828 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_35
+2022-01-29 17:45:59.828 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_36
+2022-01-29 17:45:59.829 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_37
+2022-01-29 17:45:59.829 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_38
+2022-01-29 17:45:59.829 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_39
+2022-01-29 17:45:59.829 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_40
+2022-01-29 17:45:59.829 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_41
+2022-01-29 17:45:59.829 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_42
+2022-01-29 17:45:59.829 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_43
+2022-01-29 17:45:59.830 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_44
+2022-01-29 17:45:59.830 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_45
+2022-01-29 17:45:59.830 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_46
+2022-01-29 17:45:59.830 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_47
+2022-01-29 17:45:59.830 INFO     linking mesh:M9b42d347aab246e79eac19e31288be77_48
+2022-01-29 17:45:59.830 INFO     linking mesh:M33a7a08d38859fa40be0460523f69f42_1
+2022-01-29 17:45:59.830 INFO     linking mesh:M33a7a08d38859fa40be0460523f69f42_2
+2022-01-29 17:45:59.831 INFO     linking mesh:M8f41c80bf9537508f8d36b5978eb1ed9_1
+2022-01-29 17:45:59.831 INFO     linking mesh:M8f41c80bf9537508f8d36b5978eb1ed9_2
+2022-01-29 17:45:59.831 INFO     linking mesh:M5dce95d3ef51032bbde8a081467d22d0_1
+2022-01-29 17:45:59.831 INFO     linking mesh:M21c163b8cb03eda33751b05619c1adeb_1
+2022-01-29 17:45:59.831 INFO     linking mesh:M8511c632730de05e09333da85c36034a_1
+2022-01-29 17:45:59.831 INFO     linking mesh:M8511c632730de05e09333da85c36034a_2
+2022-01-29 17:45:59.831 INFO     linking mesh:M8511c632730de05e09333da85c36034a_3
+2022-01-29 17:45:59.832 INFO     linking mesh:M8511c632730de05e09333da85c36034a_4
+2022-01-29 17:45:59.832 INFO     linking mesh:M8511c632730de05e09333da85c36034a_5
+2022-01-29 17:45:59.832 INFO     linking mesh:M8511c632730de05e09333da85c36034a_6
+2022-01-29 17:45:59.832 INFO     linking mesh:M8511c632730de05e09333da85c36034a_7
+2022-01-29 17:45:59.832 INFO     linking mesh:M8511c632730de05e09333da85c36034a_8
+2022-01-29 17:45:59.832 INFO     linking mesh:M8511c632730de05e09333da85c36034a_9
+2022-01-29 17:45:59.832 INFO     linking mesh:M8511c632730de05e09333da85c36034a_10
+2022-01-29 17:45:59.833 INFO     linking mesh:M8511c632730de05e09333da85c36034a_11
+2022-01-29 17:45:59.833 INFO     linking mesh:M8511c632730de05e09333da85c36034a_12
+2022-01-29 17:45:59.833 INFO     linking mesh:M8511c632730de05e09333da85c36034a_13
+2022-01-29 17:45:59.833 INFO     linking mesh:M8511c632730de05e09333da85c36034a_14
+2022-01-29 17:45:59.833 INFO     linking mesh:M8511c632730de05e09333da85c36034a_15
+2022-01-29 17:45:59.833 INFO     linking mesh:M8511c632730de05e09333da85c36034a_16
+2022-01-29 17:45:59.833 INFO     linking mesh:M8511c632730de05e09333da85c36034a_17
+2022-01-29 17:45:59.834 INFO     linking mesh:M8511c632730de05e09333da85c36034a_18
+2022-01-29 17:45:59.834 INFO     linking mesh:M8511c632730de05e09333da85c36034a_19
+2022-01-29 17:45:59.834 INFO     linking mesh:M8511c632730de05e09333da85c36034a_20
+2022-01-29 17:45:59.834 INFO     linking mesh:M8511c632730de05e09333da85c36034a_21
+2022-01-29 17:45:59.834 INFO     linking mesh:M8511c632730de05e09333da85c36034a_22
+2022-01-29 17:45:59.834 INFO     linking mesh:M8511c632730de05e09333da85c36034a_23
+2022-01-29 17:45:59.834 INFO     linking mesh:M8511c632730de05e09333da85c36034a_24
+2022-01-29 17:45:59.835 INFO     linking mesh:M8511c632730de05e09333da85c36034a_25
+2022-01-29 17:45:59.835 INFO     linking mesh:M8511c632730de05e09333da85c36034a_26
+2022-01-29 17:45:59.835 INFO     linking mesh:M8511c632730de05e09333da85c36034a_27
+2022-01-29 17:45:59.835 INFO     linking mesh:M8511c632730de05e09333da85c36034a_28
+2022-01-29 17:45:59.835 INFO     linking mesh:Mbde0265dee171c622500eb761720c416_1
+2022-01-29 17:45:59.835 INFO     linking mesh:Md3e62f7f1474d232635058eda5fc97f5_1
+2022-01-29 17:45:59.835 INFO     linking mesh:Mddb8cdb6f6a2d8dcc42c2f7855cc4b6f_1
+2022-01-29 17:45:59.836 INFO     linking mesh:M66e425935cda097b6cb8152562ad9afa_1
+2022-01-29 17:45:59.836 INFO     linking mesh:Mc16f5e193d56ebc21b594d56f1041ac1_1
+2022-01-29 17:45:59.836 INFO     linking mesh:M5181d3934d2044fe03f44e021e4074bd_1
+2022-01-29 17:45:59.836 INFO     linking mesh:M5181d3934d2044fe03f44e021e4074bd_2
+2022-01-29 17:45:59.836 INFO     linking mesh:M5181d3934d2044fe03f44e021e4074bd_3
+2022-01-29 17:45:59.836 INFO     linking mesh:M5181d3934d2044fe03f44e021e4074bd_4
+2022-01-29 17:45:59.836 INFO     linking mesh:M1fa3f5f5b25035bada87537547e26dd0_1
+2022-01-29 17:45:59.837 INFO     linking mesh:M859dc7516e9e59627225fe2df1a47cfd_1
+2022-01-29 17:45:59.837 INFO     linking mesh:M859dc7516e9e59627225fe2df1a47cfd_2
+2022-01-29 17:45:59.837 INFO     linking mesh:M859dc7516e9e59627225fe2df1a47cfd_3
+2022-01-29 17:45:59.837 INFO     linking mesh:M859dc7516e9e59627225fe2df1a47cfd_4
+2022-01-29 17:45:59.837 INFO     linking mesh:M859dc7516e9e59627225fe2df1a47cfd_5
+2022-01-29 17:45:59.837 INFO     linking mesh:Ma070ff497894aeae9ab4ebcb78a5dfc4_1
+2022-01-29 17:45:59.837 INFO     linking mesh:M2667f0b90c9b54b26bfbec5719cc1e7a_1
+2022-01-29 17:45:59.838 INFO     linking mesh:Ma3e7a5379bc6febc96f59423155e6219_1
+2022-01-29 17:45:59.838 INFO     linking mesh:Ma661ab03eab6f9da4f7de09e7f41fd24_1
+2022-01-29 17:45:59.838 INFO     linking mesh:Ma661ab03eab6f9da4f7de09e7f41fd24_2
+2022-01-29 17:45:59.838 INFO     linking mesh:Ma661ab03eab6f9da4f7de09e7f41fd24_3
+2022-01-29 17:45:59.838 INFO     linking mesh:Ma661ab03eab6f9da4f7de09e7f41fd24_4
+2022-01-29 17:45:59.838 INFO     linking mesh:Ma661ab03eab6f9da4f7de09e7f41fd24_5
+2022-01-29 17:45:59.839 INFO     linking mesh:Ma661ab03eab6f9da4f7de09e7f41fd24_6
+2022-01-29 17:45:59.839 INFO     linking mesh:M77d23c8a6b4a9a93fc7148a1d8f23fd7_1
+2022-01-29 17:45:59.839 INFO     linking mesh:M77d23c8a6b4a9a93fc7148a1d8f23fd7_2
+2022-01-29 17:45:59.839 INFO     linking mesh:M77d23c8a6b4a9a93fc7148a1d8f23fd7_3
+2022-01-29 17:45:59.839 INFO     linking actors
+2022-01-29 17:45:59.839 INFO     processing root actor 0/81: SU_116318
+2022-01-29 17:45:59.840 INFO     processing root actor 1/81: SU_173096_1
+2022-01-29 17:45:59.840 INFO     processing root actor 2/81: SU_174966
+2022-01-29 17:45:59.841 INFO     processing root actor 3/81: SU_186500
+2022-01-29 17:45:59.841 INFO     processing root actor 4/81: SU_233774
+2022-01-29 17:45:59.842 INFO     processing root actor 5/81: SU_275555
+2022-01-29 17:45:59.843 INFO     processing root actor 6/81: SU_403938
+2022-01-29 17:45:59.844 INFO     processing root actor 7/81: SU_528852
+2022-01-29 17:45:59.847 INFO     processing root actor 8/81: SU_529651
+2022-01-29 17:45:59.848 INFO     processing root actor 9/81: SU_553650
+2022-01-29 17:45:59.848 INFO     processing root actor 10/81: SU_553651
+2022-01-29 17:45:59.850 INFO     processing root actor 11/81: SU_560699
+2022-01-29 17:45:59.851 INFO     processing root actor 12/81: SU_564188
+2022-01-29 17:45:59.856 INFO     processing root actor 13/81: SU_613746
+2022-01-29 17:45:59.857 INFO     processing root actor 14/81: SU_613747
+2022-01-29 17:45:59.857 INFO     processing root actor 15/81: SU_615908
+2022-01-29 17:45:59.859 INFO     processing root actor 16/81: SU_615919_1
+2022-01-29 17:45:59.859 INFO     processing root actor 17/81: SU_615920_1
+2022-01-29 17:45:59.859 INFO     processing root actor 18/81: SU_615921_1
+2022-01-29 17:45:59.859 INFO     processing root actor 19/81: SU_615922_1
+2022-01-29 17:45:59.859 INFO     processing root actor 20/81: SU_615923_1
+2022-01-29 17:45:59.860 INFO     processing root actor 21/81: SU_615924_1
+2022-01-29 17:45:59.860 INFO     processing root actor 22/81: SU_615925_1
+2022-01-29 17:45:59.860 INFO     processing root actor 23/81: SU_615926_1
+2022-01-29 17:45:59.860 INFO     processing root actor 24/81: SU_615927_1
+2022-01-29 17:45:59.860 INFO     processing root actor 25/81: SU_615928_1
+2022-01-29 17:45:59.861 INFO     processing root actor 26/81: SU_615929_1
+2022-01-29 17:45:59.861 INFO     processing root actor 27/81: SU_617602
+2022-01-29 17:45:59.867 INFO     processing root actor 28/81: SU_953132
+2022-01-29 17:45:59.868 INFO     processing root actor 29/81: SU_978392
+2022-01-29 17:45:59.870 INFO     processing root actor 30/81: SU_978400
+2022-01-29 17:45:59.873 INFO     processing root actor 31/81: SU_978401
+2022-01-29 17:45:59.875 INFO     processing root actor 32/81: SU_978402
+2022-01-29 17:45:59.877 INFO     processing root actor 33/81: SU_978403
+2022-01-29 17:45:59.880 INFO     processing root actor 34/81: SU_1096329
+2022-01-29 17:45:59.882 INFO     processing root actor 35/81: SU_1096330
+2022-01-29 17:45:59.885 INFO     processing root actor 36/81: SU_1096327
+2022-01-29 17:45:59.887 INFO     processing root actor 37/81: SU_1096331
+2022-01-29 17:45:59.890 INFO     processing root actor 38/81: SU_1096328
+2022-01-29 17:45:59.892 INFO     processing root actor 39/81: SU_1096332
+2022-01-29 17:45:59.894 INFO     processing root actor 40/81: SU_1101023
+2022-01-29 17:45:59.896 INFO     processing root actor 41/81: SU_1168285_1
+2022-01-29 17:45:59.896 INFO     processing root actor 42/81: SU_1170376
+2022-01-29 17:45:59.898 INFO     processing root actor 43/81: SU_1170377
+2022-01-29 17:45:59.899 INFO     processing root actor 44/81: SU_1214217_1
+2022-01-29 17:45:59.900 INFO     processing root actor 45/81: SU_1216132_1
+2022-01-29 17:45:59.900 INFO     processing root actor 46/81: SU_1216133_1
+2022-01-29 17:45:59.900 INFO     processing root actor 47/81: SU_1216134_1
+2022-01-29 17:45:59.901 INFO     processing root actor 48/81: SU_1216135_1
+2022-01-29 17:45:59.901 INFO     processing root actor 49/81: SU_1216850_1
+2022-01-29 17:45:59.901 INFO     processing root actor 50/81: SU_1221432
+2022-01-29 17:45:59.902 INFO     processing root actor 51/81: SU_1349942_1
+2022-01-29 17:45:59.902 INFO     processing root actor 52/81: SU_1349943_1
+2022-01-29 17:45:59.902 INFO     processing root actor 53/81: SU_1349944_1
+2022-01-29 17:45:59.903 INFO     processing root actor 54/81: SU_1384677_1
+2022-01-29 17:45:59.903 INFO     processing root actor 55/81: SU_1384678_1
+2022-01-29 17:45:59.903 INFO     processing root actor 56/81: SU_1384679_1
+2022-01-29 17:45:59.904 INFO     processing root actor 57/81: SU_1384774_1
+2022-01-29 17:45:59.904 INFO     processing root actor 58/81: SU_1384775_1
+2022-01-29 17:45:59.904 INFO     processing root actor 59/81: SU_1384776_1
+2022-01-29 17:45:59.904 INFO     processing root actor 60/81: SU_1384777_1
+2022-01-29 17:45:59.905 INFO     processing root actor 61/81: SU_1460666
+2022-01-29 17:45:59.911 INFO     processing root actor 62/81: SU_149672
+2022-01-29 17:45:59.912 INFO     processing root actor 63/81: SU_173127
+2022-01-29 17:45:59.913 INFO     processing root actor 64/81: SU_186563
+2022-01-29 17:45:59.913 INFO     processing root actor 65/81: SU_532394
+2022-01-29 17:45:59.925 INFO     processing root actor 66/81: SU_554675
+2022-01-29 17:46:00.039 INFO     processing root actor 67/81: SU_554676
+2022-01-29 17:46:00.040 INFO     processing root actor 68/81: SU_560916
+2022-01-29 17:46:00.041 INFO     processing root actor 69/81: SU_953026_1
+2022-01-29 17:46:00.041 INFO     processing root actor 70/81: SU_978404
+2022-01-29 17:46:00.045 INFO     processing root actor 71/81: SU_978870
+2022-01-29 17:46:00.046 INFO     processing root actor 72/81: SU_978871
+2022-01-29 17:46:00.047 INFO     processing root actor 73/81: SU_978872
+2022-01-29 17:46:00.048 INFO     processing root actor 74/81: SU_978913
+2022-01-29 17:46:00.049 INFO     processing root actor 75/81: SU_978914
+2022-01-29 17:46:00.050 INFO     processing root actor 76/81: SU_1096053
+2022-01-29 17:46:00.083 INFO     processing root actor 77/81: SU_1350177
+2022-01-29 17:46:00.163 INFO     processing root actor 78/81: SU_1350175
+2022-01-29 17:46:00.167 INFO     processing root actor 79/81: SU_1350176
+2022-01-29 17:46:00.173 INFO     processing root actor 80/81: SU_1384778
+2022-01-29 17:46:00.177 INFO     finished scene! <Element 'DatasmithUnrealScene' at 0x0000020C938CFD10>
+2022-01-29 17:46:00.179 INFO     import finished in 0.7179999999934807 seconds
+2022-01-29 17:46:00.179 INFO     Finished Datasmith import
+2022-01-29 17:46:00.180 INFO     Finished logging to path:C:\abotero\SkyForce\PlaneGame\art\MUNDO1.udatasmith.log
