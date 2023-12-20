@@ -1,13 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq5jlkukn62b5"]
+[gd_scene load_steps=11 format=3 uid="uid://bq5jlkukn62b5"]
 
 [ext_resource type="PackedScene" uid="uid://drib26awjkgd5" path="res://rcsim/Plane.tscn" id="1_leiuk"]
 [ext_resource type="PackedScene" uid="uid://bejf7jl0qljxf" path="res://rcsim/drone.tscn" id="2_oop3u"]
 [ext_resource type="Script" path="res://rcsim/scripts/player.gd" id="3_nhuyr"]
-[ext_resource type="Script" path="res://rcsim/scripts/input.gd" id="6_c1rmn"]
+[ext_resource type="PackedScene" uid="uid://cacgfoyujh5lr" path="res://rcsim/scenes/player_client.tscn" id="6_lwagp"]
 [ext_resource type="Script" path="res://rcsim/scripts/dpi_scaler.gd" id="7_fg60s"]
 [ext_resource type="PackedScene" uid="uid://pmjlp8cmu6m4" path="res://rcsim/levels/k_town.tscn" id="7_u60cw"]
-[ext_resource type="Script" path="res://rcsim/scripts/input_display.gd" id="8_11sjd"]
-[ext_resource type="PackedScene" uid="uid://b6voggfs408vn" path="res://rcsim/scenes/osd.tscn" id="8_ulwno"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_5b503"]
 top_radius = 0.0
@@ -24,37 +22,10 @@ gravity = Vector3(0, 0, 0)
 [sub_resource type="QuadMesh" id="QuadMesh_ia6nm"]
 size = Vector2(0.02, 0.02)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utdsd"]
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-
 [node name="Entry" type="Node"]
 
 [node name="DPIScaler" type="Node" parent="."]
 script = ExtResource("7_fg60s")
-
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
-handle_input_locally = false
-size = Vector2i(800, 900)
-render_target_update_mode = 4
-
-[node name="Camera3D2" type="Camera3D" parent="SubViewportContainer2/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.978735, 0.205129, 0, -0.205129, 0.978735, -0.778694, 1.35753, 11.0796)
-current = true
-fov = 100.6
-far = 1000.0
 
 [node name="MainMenu" type="Control" parent="."]
 visible = false
@@ -142,6 +113,7 @@ transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, -2.62798, 0
 mass = 0.4
 continuous_cd = true
 angular_damp = 10.0
+flight_mode = 1
 
 [node name="Player" type="Node" parent="Drone" node_paths=PackedStringArray("input")]
 script = ExtResource("3_nhuyr")
@@ -152,127 +124,39 @@ input = NodePath("../../PlayerClient/Input")
 transform = Transform3D(0.995114, 0, 0, 0, 0.951876, -0.290145, 0, 0.290145, 0.951876, 0, 0.0617839, 0.0212998)
 remote_path = NodePath("../../PlayerClient/AspectRatioContainer/SubViewportContainer/SubViewport/Camera3D2")
 
+[node name="Drone2" parent="." instance=ExtResource("2_oop3u")]
+transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, -1.17743, 0.00600052, 7.74716)
+mass = 0.4
+continuous_cd = true
+angular_damp = 10.0
+
+[node name="Player" type="Node" parent="Drone2" node_paths=PackedStringArray("input")]
+script = ExtResource("3_nhuyr")
+plane_path = NodePath("../../Plane")
+input = NodePath("../../PlayerClient2/Input")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Drone2"]
+transform = Transform3D(0.995114, 0, 0, 0, 0.951876, -0.290145, 0, 0.290145, 0.951876, 0, 0.0617839, 0.0212998)
+remote_path = NodePath("../../PlayerClient2/AspectRatioContainer/SubViewportContainer/SubViewport/Camera3D2")
+
 [node name="World" parent="." instance=ExtResource("7_u60cw")]
 
-[node name="PlayerClient" type="Control" parent="."]
-layout_mode = 3
-anchor_right = 0.5
-anchor_bottom = 1.0
+[node name="PlayerClient" parent="." instance=ExtResource("6_lwagp")]
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="PlayerClient"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 18.0
-offset_top = 20.0
-offset_right = -18.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-ratio = 1.3333
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="PlayerClient/AspectRatioContainer"]
-layout_mode = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="PlayerClient/AspectRatioContainer/SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(764, 573)
-size_2d_override = Vector2i(320, 240)
-size_2d_override_stretch = true
-render_target_update_mode = 4
-
-[node name="Camera3D2" type="Camera3D" parent="PlayerClient/AspectRatioContainer/SubViewportContainer/SubViewport"]
+[node name="Camera3D2" parent="PlayerClient/AspectRatioContainer/SubViewportContainer/SubViewport" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.95655, -0.29157, 0, 0.29157, 0.95655, -2.62798, 0.0680878, 7.76856)
-current = true
-fov = 100.6
-far = 1000.0
 
-[node name="OSD" parent="PlayerClient/AspectRatioContainer/SubViewportContainer/SubViewport" instance=ExtResource("8_ulwno")]
-
-[node name="Viewport" type="Control" parent="PlayerClient"]
-layout_mode = 1
-anchors_preset = 15
+[node name="PlayerClient2" parent="." instance=ExtResource("6_lwagp")]
+anchor_left = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Label" type="Label" parent="PlayerClient/Viewport"]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 34.0
-offset_right = 246.0
-offset_bottom = 83.0
-text = "FPV Data 123"
-
-[node name="InputDisplay" type="Control" parent="PlayerClient/Viewport" node_paths=PackedStringArray("cont_left", "cont_right", "thumb_left", "thumb_right", "input")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -79.0
-offset_top = -74.0
-offset_right = 79.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("8_11sjd")
-cont_left = NodePath("StickLeft")
-cont_right = NodePath("StickRight")
-thumb_left = NodePath("StickLeft/Stick")
-thumb_right = NodePath("StickRight/Stick")
-input = NodePath("../../Input")
-
-[node name="StickLeft" type="Panel" parent="PlayerClient/Viewport/InputDisplay"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 0
-offset_top = 1.0
-offset_right = 64.0
-offset_bottom = 65.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_utdsd")
-
-[node name="Stick" type="Panel" parent="PlayerClient/Viewport/InputDisplay/StickLeft"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_utdsd")
 
-[node name="StickRight" type="Panel" parent="PlayerClient/Viewport/InputDisplay"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 0
-offset_left = 85.0
-offset_top = 1.0
-offset_right = 149.0
-offset_bottom = 65.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_utdsd")
+[node name="Camera3D2" parent="PlayerClient2/AspectRatioContainer/SubViewportContainer/SubViewport" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.95655, -0.29157, 0, 0.29157, 0.95655, -1.17743, 0.0680878, 7.76856)
 
-[node name="Stick" type="Panel" parent="PlayerClient/Viewport/InputDisplay/StickRight"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_utdsd")
+[node name="Input" parent="PlayerClient2" index="2"]
+device = 1
 
-[node name="Input" type="Node" parent="PlayerClient"]
-script = ExtResource("6_c1rmn")
-control_type = 1
+[editable path="PlayerClient"]
+[editable path="PlayerClient2"]

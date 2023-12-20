@@ -1,0 +1,137 @@
+[gd_scene load_steps=5 format=3 uid="uid://cacgfoyujh5lr"]
+
+[ext_resource type="PackedScene" uid="uid://b6voggfs408vn" path="res://rcsim/scenes/osd.tscn" id="1_be11s"]
+[ext_resource type="Script" path="res://rcsim/scripts/input_display.gd" id="2_1wr1c"]
+[ext_resource type="Script" path="res://rcsim/scripts/input.gd" id="3_707gt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utdsd"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="PlayerClient" type="Control"]
+layout_mode = 3
+anchor_right = 0.5
+anchor_bottom = 1.0
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 20.0
+offset_right = -18.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.3333
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="AspectRatioContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(764, 573)
+size_2d_override = Vector2i(320, 240)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="AspectRatioContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.95655, -0.29157, 0, 0.29157, 0.95655, -2.62798, 0.0680878, 7.76856)
+current = true
+fov = 100.6
+far = 1000.0
+
+[node name="OSD" parent="AspectRatioContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_be11s")]
+
+[node name="Viewport" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Viewport"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 34.0
+offset_right = 246.0
+offset_bottom = 83.0
+text = "FPV Data 123"
+
+[node name="InputDisplay" type="Control" parent="Viewport" node_paths=PackedStringArray("cont_left", "cont_right", "thumb_left", "thumb_right", "input")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -74.0
+offset_right = 79.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_1wr1c")
+cont_left = NodePath("StickLeft")
+cont_right = NodePath("StickRight")
+thumb_left = NodePath("StickLeft/Stick")
+thumb_right = NodePath("StickRight/Stick")
+input = NodePath("../../Input")
+
+[node name="StickLeft" type="Panel" parent="Viewport/InputDisplay"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_top = 1.0
+offset_right = 64.0
+offset_bottom = 65.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_utdsd")
+
+[node name="Stick" type="Panel" parent="Viewport/InputDisplay/StickLeft"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_utdsd")
+
+[node name="StickRight" type="Panel" parent="Viewport/InputDisplay"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 85.0
+offset_top = 1.0
+offset_right = 149.0
+offset_bottom = 65.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_utdsd")
+
+[node name="Stick" type="Panel" parent="Viewport/InputDisplay/StickRight"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_utdsd")
+
+[node name="Input" type="Node" parent="."]
+script = ExtResource("3_707gt")
+control_type = 1
