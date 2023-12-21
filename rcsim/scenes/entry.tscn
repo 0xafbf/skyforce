@@ -111,8 +111,6 @@ draw_pass_1 = SubResource("QuadMesh_ia6nm")
 [node name="Drone" parent="." instance=ExtResource("2_oop3u")]
 transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, -2.62798, 0.00600052, 7.74716)
 mass = 0.4
-continuous_cd = true
-angular_damp = 10.0
 flight_mode = 1
 
 [node name="Player" type="Node" parent="Drone" node_paths=PackedStringArray("input")]
@@ -121,14 +119,11 @@ plane_path = NodePath("../../Plane")
 input = NodePath("../../PlayerClient/Input")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Drone"]
-transform = Transform3D(0.995114, 0, 0, 0, 0.951876, -0.290145, 0, 0.290145, 0.951876, 0, 0.0617839, 0.0212998)
+transform = Transform3D(0.995114, 0, 0, 0, 0.861794, -0.497557, 0, 0.497557, 0.861794, 0, 0.0617839, 0.0212998)
 remote_path = NodePath("../../PlayerClient/AspectRatioContainer/SubViewportContainer/SubViewport/Camera3D2")
 
 [node name="Drone2" parent="." instance=ExtResource("2_oop3u")]
 transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, -1.17743, 0.00600052, 7.74716)
-mass = 0.4
-continuous_cd = true
-angular_damp = 10.0
 
 [node name="Player" type="Node" parent="Drone2" node_paths=PackedStringArray("input")]
 script = ExtResource("3_nhuyr")
@@ -136,7 +131,7 @@ plane_path = NodePath("../../Plane")
 input = NodePath("../../PlayerClient2/Input")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Drone2"]
-transform = Transform3D(0.995114, 0, 0, 0, 0.951876, -0.290145, 0, 0.290145, 0.951876, 0, 0.0617839, 0.0212998)
+transform = Transform3D(0.995114, 0, 0, 0, 0.861794, -0.497557, 0, 0.497557, 0.861794, 0, 0.0617839, 0.0212998)
 remote_path = NodePath("../../PlayerClient2/AspectRatioContainer/SubViewportContainer/SubViewport/Camera3D2")
 
 [node name="World" parent="." instance=ExtResource("7_u60cw")]
@@ -144,7 +139,7 @@ remote_path = NodePath("../../PlayerClient2/AspectRatioContainer/SubViewportCont
 [node name="PlayerClient" parent="." instance=ExtResource("6_lwagp")]
 
 [node name="Camera3D2" parent="PlayerClient/AspectRatioContainer/SubViewportContainer/SubViewport" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.95655, -0.29157, 0, 0.29157, 0.95655, -2.62798, 0.0680878, 7.76856)
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -2.62798, 0.0680878, 7.76856)
 
 [node name="PlayerClient2" parent="." instance=ExtResource("6_lwagp")]
 anchor_left = 0.5
@@ -153,7 +148,7 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Camera3D2" parent="PlayerClient2/AspectRatioContainer/SubViewportContainer/SubViewport" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.95655, -0.29157, 0, 0.29157, 0.95655, -1.17743, 0.0680878, 7.76856)
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -1.17743, 0.0680878, 7.76856)
 
 [node name="Input" parent="PlayerClient2" index="2"]
 device = 1

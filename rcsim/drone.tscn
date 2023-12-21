@@ -16,15 +16,23 @@ size = Vector3(0.025, 0.005, 0.125)
 
 [node name="Plane" type="RigidBody3D" node_paths=PackedStringArray("propeller_fl", "propeller_fr", "propeller_rl", "propeller_rr")]
 transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, 0, 0, 0)
-mass = 0.01
+mass = 0.47
 physics_material_override = SubResource("PhysicsMaterial_g3gb4")
 center_of_mass_mode = 1
-angular_damp = 4.0
+continuous_cd = true
+angular_damp = 10.0
 script = ExtResource("1_trh66")
 propeller_fl = NodePath("PropellerFL")
 propeller_fr = NodePath("PropellerFR")
 propeller_rl = NodePath("PropellerRL")
 propeller_rr = NodePath("PropellerRR")
+thrust_power = 4.0
+pitch_speed = 400.0
+yaw_speed = 400.0
+roll_speed = 400.0
+power_pitch = 0.1
+power_yaw = 0.1
+power_roll = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0581802, 0)
