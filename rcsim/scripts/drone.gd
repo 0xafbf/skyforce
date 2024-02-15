@@ -65,8 +65,8 @@ func _physics_process(delta):
 	var target_rate	:= Vector3(target_pitch_rate, target_yaw_rate, target_roll_rate) / 360 * TAU
 	
 	var delta_rate := target_rate - angular_velocity
-	print("target rate: ", target_rate)
-	print("delta rate:  ", delta_rate )
+	#print("target rate: ", target_rate)
+	#print("delta rate:  ", delta_rate )
 
 
 	var base_thrust := input_thrust * thrust_power
@@ -84,7 +84,7 @@ func _physics_process(delta):
 	propeller_speed[1] = input_fr
 	propeller_speed[2] = input_rl
 	propeller_speed[3] = input_rr
-	print(propeller_speed)
+	#print(propeller_speed)
 	
 	var thrust_dir := global_transform.basis.y
 	apply_force(thrust_dir * input_fl, get_relative_pos(propeller_fl))
