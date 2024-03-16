@@ -40,7 +40,7 @@ enum FlightMode {
 @export var flight_mode: FlightMode = FlightMode.ACRO
 
 func _process(delta: float) -> void:
-	var propeller_base := propeller_angularspeed_max * in_thrust
+	#var propeller_base := propeller_angularspeed_max * in_thrust
 	var propeller_delta := propeller_angularspeed_max * delta
 	propeller_fl.rotate(Vector3.UP, propeller_speed[0] * propeller_delta)
 	propeller_fr.rotate(Vector3.UP, propeller_speed[1] * propeller_delta)
@@ -53,7 +53,8 @@ func get_relative_pos(target: Node3D) -> Vector3:
 
 var propeller_speed: PackedFloat32Array = PackedFloat32Array()
 
-func _physics_process(delta):
+
+func _physics_process(_delta: float) -> void:
 
 	var input_thrust := in_thrust
 	if flight_mode == FlightMode.ACRO:
@@ -63,7 +64,7 @@ func _physics_process(delta):
 	var target_yaw_rate := in_yaw * yaw_speed
 	var target_roll_rate := in_roll * roll_speed
 	var target_rate	:= Vector3(target_pitch_rate, target_yaw_rate, target_roll_rate) / 360 * TAU
-	
+
 	var delta_rate := target_rate - angular_velocity
 	#print("target rate: ", target_rate)
 	#print("delta rate:  ", delta_rate )
@@ -78,20 +79,20 @@ func _physics_process(delta):
 	var input_fr := base_thrust - base_pitch - base_roll
 	var input_rl := base_thrust + base_pitch + base_roll
 	var input_rr := base_thrust + base_pitch - base_roll
-	
+
 	propeller_speed.resize(4)
 	propeller_speed[0] = input_fl
 	propeller_speed[1] = input_fr
 	propeller_speed[2] = input_rl
 	propeller_speed[3] = input_rr
 	#print(propeller_speed)
-	
+
 	var thrust_dir := global_transform.basis.y
 	apply_force(thrust_dir * input_fl, get_relative_pos(propeller_fl))
 	apply_force(thrust_dir * input_fr, get_relative_pos(propeller_fr))
 	apply_force(thrust_dir * input_rl, get_relative_pos(propeller_rl))
 	apply_force(thrust_dir * input_rr, get_relative_pos(propeller_rr))
-	
+
 
 	var torque2: Vector3 = -global_transform.basis.y * base_yaw
 	apply_torque(torque2)

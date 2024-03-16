@@ -7,7 +7,7 @@ extends Control
 
 @export var input: SFInput
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var left_x := input.left_x
 	var left_y := input.left_y
 	var right_x := input.right_x

@@ -16,7 +16,7 @@ enum ControlType {
 @export var device: int = 0
 
 @warning_ignore("int_as_enum_without_cast")
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var control_name = Input.get_joy_name(device)
 	if control_name == "Radiomaster TX12 Joystick":
 		control_type = ControlType.TX12

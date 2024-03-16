@@ -17,7 +17,7 @@ class_name Airplane
 
 @onready var stabilizer_vert = $StabilizerVertical
 @onready var stabilizer_horz = $StabilizerHorizontal
-@export var stabilizer_horz_influence: float = 1 
+@export var stabilizer_horz_influence: float = 1
 @export var stabilizer_vert_influence: float = 1
 @onready var wings = $Wings
 
@@ -40,38 +40,15 @@ var thrust_cumulative: float = 0
 
 
 func _process(delta):
-	
+
 	aileron_l.rotation_degrees.x = in_roll * aileron_rate
 	aileron_r.rotation_degrees.x = -in_roll * aileron_rate
-	
+
 	pivot_rudder.rotation_degrees.y = in_yaw * rudder_rate
 	pivot_elevator.rotation_degrees.x = in_pitch * elevator_rate
-	
+
 	thrust_cumulative += in_thrust * delta
 	thruster_visual.rotation_degrees.z = thrust_cumulative * thruster_angular_speed
-
-
-	var basis = transform.basis
-	var forward: Vector3 = basis * Vector3.FORWARD
-	var up: Vector3      = basis * Vector3.UP
-	var right: Vector3   = basis * Vector3.RIGHT
-	
-	return
-	gl.clear()
-	gl.begin(Mesh.PRIMITIVE_LINES)
-	
-	# thrust
-	gl.set_color(Color.RED)
-	var thrust_origin = thruster_visual.global_transform.origin
-	gl.add_vertex(thrust_origin)
-	gl.add_vertex(thrust_origin + thrust_vector)
-	
-	# lift
-	gl.set_color(Color.GREEN)
-	gl.add_vertex(position)
-	gl.add_vertex(position + lift_vector * 1)
-	gl.end()
-	
 
 
 var thrust_vector: Vector3
@@ -81,12 +58,12 @@ var lift_vector: Vector3
 func get_relative_pos(target: Node3D) -> Vector3:
 	return target.global_transform.origin - global_transform.origin
 
-func _physics_process(delta):
-	var basis = transform.basis
-	var forward: Vector3 = basis * Vector3.FORWARD
-	var up: Vector3      = basis * Vector3.UP
-	var right: Vector3   = basis * Vector3.RIGHT
-	
+func _physics_process(_delta):
+	var tx_basis := transform.basis
+	var forward: Vector3 = tx_basis * Vector3.FORWARD
+	var up: Vector3      = tx_basis * Vector3.UP
+	var right: Vector3   = tx_basis * Vector3.RIGHT
+
 	var thrust_mag = in_thrust * thrust_scale
 	thrust_vector = thrust_mag * forward
 	#print("adding force:%s" % thrust_vector)
@@ -94,19 +71,19 @@ func _physics_process(delta):
 
 	var velocity = linear_velocity
 	var velocity_forward = velocity.dot(forward)
-	
-	
+
+
 	var drag = velocity * drag_scale * -1
 	apply_force(drag)
 
 	var remaining_velocity = (1.0 - drag_scale) * velocity_forward
-	
+
 	var wing_up = wings.global_transform.basis * Vector3.UP
 	var wing_influence = wing_up.dot(-velocity)
 	lift_vector = lift_scale * wing_up * wing_influence * remaining_velocity
 
 	apply_force(lift_vector)
-	
+
 	var torque_amount = velocity_forward * in_roll * roll_torque
 	var torque: Vector3 = torque_amount * forward
 	apply_torque(torque)
@@ -114,15 +91,15 @@ func _physics_process(delta):
 	torque_amount = velocity_forward * in_pitch * pitch_torque
 	torque = -torque_amount * right
 	apply_torque(torque)
-	
+
 	torque_amount = velocity_forward * in_yaw * yaw_torque
 	torque = -torque_amount * up
 	apply_torque(torque)
 
 	var stabilizer_horz_mag = stabilizer_horz_influence * velocity.dot(right)
 	var stabilizer_vert_mag = stabilizer_vert_influence * velocity.dot(up)
-	
+
 	apply_force(-stabilizer_horz_mag * right, get_relative_pos(stabilizer_horz))
 	apply_force(-stabilizer_vert_mag * up, get_relative_pos(stabilizer_vert))
-	
-	
+
+
