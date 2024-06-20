@@ -6,6 +6,8 @@ class_name TouchArea
 @export var free_y: bool = false
 @export var pull_center: bool = false
 
+var use_mouse: bool = false
+
 @export var range_ui: Control
 @export var stick_ui: Control
 
@@ -17,18 +19,27 @@ var pressed: bool = false
 var rect_half_size: Vector2 = Vector2(50, 50)
 var analog_value: Vector2
 
-var current_relative
+var current_touch: int = -1
+
 
 func _ready() -> void:
 	set_pressed(false)
 
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
+	if use_mouse:
+		if event is InputEventMouseButton:
+			set_pressed(event.pressed)
+			set_start_pos(event.position)
+			set_current_pos(event.position)
+
+		elif event is InputEventMouseMotion:
+			set_current_pos(event.position)
+
+	if event is InputEventScreenTouch:
 		set_pressed(event.pressed)
 		set_start_pos(event.position)
 		set_current_pos(event.position)
-
-	elif event is InputEventMouseMotion:
+	elif event is InputEventScreenDrag:
 		set_current_pos(event.position)
 
 func set_pressed(in_pressed: bool):
