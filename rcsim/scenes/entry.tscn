@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bq5jlkukn62b5"]
+[gd_scene load_steps=10 format=3 uid="uid://bq5jlkukn62b5"]
 
 [ext_resource type="PackedScene" uid="uid://drib26awjkgd5" path="res://rcsim/Plane.tscn" id="1_leiuk"]
 [ext_resource type="PackedScene" uid="uid://bejf7jl0qljxf" path="res://rcsim/drone.tscn" id="2_oop3u"]
-[ext_resource type="Script" path="res://rcsim/scripts/player.gd" id="3_nhuyr"]
 [ext_resource type="PackedScene" uid="uid://cacgfoyujh5lr" path="res://rcsim/scenes/player_client.tscn" id="6_lwagp"]
 [ext_resource type="Script" path="res://rcsim/scripts/dpi_scaler.gd" id="7_fg60s"]
 [ext_resource type="PackedScene" uid="uid://pmjlp8cmu6m4" path="res://rcsim/levels/k_town.tscn" id="7_u60cw"]
@@ -98,7 +97,6 @@ thruster_angular_speed = 4000.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Plane"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0526131, -0.999362)
-visible = false
 mesh = SubResource("CylinderMesh_5b503")
 
 [node name="Particles" type="GPUParticles3D" parent="Plane"]
@@ -113,45 +111,24 @@ transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, -2.62798, 0
 mass = 0.4
 flight_mode = 1
 
-[node name="Player" type="Node" parent="Drone" node_paths=PackedStringArray("input")]
-script = ExtResource("3_nhuyr")
-plane_path = NodePath("../../Plane")
-input = NodePath("../../PlayerClient/Input")
-
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Drone"]
-transform = Transform3D(0.995114, 0, 0, 0, 0.861794, -0.497557, 0, 0.497557, 0.861794, 0, 0.0617839, 0.0212998)
-remote_path = NodePath("../../PlayerClient/AspectRatioContainer/SubViewportContainer/SubViewport/Camera3D2")
-
 [node name="Drone2" parent="." instance=ExtResource("2_oop3u")]
 transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, -1.17743, 0.00600052, 7.74716)
 
-[node name="Player" type="Node" parent="Drone2" node_paths=PackedStringArray("input")]
-script = ExtResource("3_nhuyr")
-plane_path = NodePath("../../Plane")
-input = NodePath("../../PlayerClient2/Input")
-
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Drone2"]
-transform = Transform3D(0.995114, 0, 0, 0, 0.861794, -0.497557, 0, 0.497557, 0.861794, 0, 0.0617839, 0.0212998)
-remote_path = NodePath("../../PlayerClient2/AspectRatioContainer/SubViewportContainer/SubViewport/Camera3D2")
-
 [node name="World" parent="." instance=ExtResource("7_u60cw")]
 
-[node name="PlayerClient" parent="." instance=ExtResource("6_lwagp")]
-
-[node name="Camera3D2" parent="PlayerClient/AspectRatioContainer/SubViewportContainer/SubViewport" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -2.62798, 0.0680878, 7.76856)
-
-[node name="PlayerClient2" parent="." instance=ExtResource("6_lwagp")]
-anchor_left = 0.5
+[node name="GameClient" type="HBoxContainer" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Camera3D2" parent="PlayerClient2/AspectRatioContainer/SubViewportContainer/SubViewport" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -1.17743, 0.0680878, 7.76856)
+[node name="PlayerClient" parent="GameClient" node_paths=PackedStringArray("target") instance=ExtResource("6_lwagp")]
+layout_mode = 2
+size_flags_horizontal = 3
+target = NodePath("../../Drone")
 
-[node name="Input" parent="PlayerClient2" index="2"]
-device = 1
-
-[editable path="PlayerClient"]
-[editable path="PlayerClient2"]
+[node name="PlayerClient2" parent="GameClient" instance=ExtResource("6_lwagp")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3

@@ -18,8 +18,8 @@ config/icon="res://rcsim/ui/skyforce_icon.png"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=900
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/handheld/orientation="sensor_landscape"
 window/vsync/vsync_mode=false
 
@@ -218,4 +218,5 @@ toggle_fullscreen={
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_environment="res://default_env.tres"

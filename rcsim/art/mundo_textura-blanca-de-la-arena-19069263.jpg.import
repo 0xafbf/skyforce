@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7xf4t6vw8ehj"
 path.s3tc="res://.godot/imported/mundo_textura-blanca-de-la-arena-19069263.jpg-96c02b2745c1f42e1c73e3d831b9a867.s3tc.ctex"
+path.etc2="res://.godot/imported/mundo_textura-blanca-de-la-arena-19069263.jpg-96c02b2745c1f42e1c73e3d831b9a867.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://rcsim/art/mundo_textura-blanca-de-la-arena-19069263.jpg"
-dest_files=["res://.godot/imported/mundo_textura-blanca-de-la-arena-19069263.jpg-96c02b2745c1f42e1c73e3d831b9a867.s3tc.ctex"]
+dest_files=["res://.godot/imported/mundo_textura-blanca-de-la-arena-19069263.jpg-96c02b2745c1f42e1c73e3d831b9a867.s3tc.ctex", "res://.godot/imported/mundo_textura-blanca-de-la-arena-19069263.jpg-96c02b2745c1f42e1c73e3d831b9a867.etc2.ctex"]
 
 [params]
 

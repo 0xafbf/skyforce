@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyhxob3xdfqjs"
 path.s3tc="res://.godot/imported/mundo_Wood_01.png-3a81a5f3cd1055d858be27333a270d49.s3tc.ctex"
+path.etc2="res://.godot/imported/mundo_Wood_01.png-3a81a5f3cd1055d858be27333a270d49.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://rcsim/art/mundo_Wood_01.png"
-dest_files=["res://.godot/imported/mundo_Wood_01.png-3a81a5f3cd1055d858be27333a270d49.s3tc.ctex"]
+dest_files=["res://.godot/imported/mundo_Wood_01.png-3a81a5f3cd1055d858be27333a270d49.s3tc.ctex", "res://.godot/imported/mundo_Wood_01.png-3a81a5f3cd1055d858be27333a270d49.etc2.ctex"]
 
 [params]
 

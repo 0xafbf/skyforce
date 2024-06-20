@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2yjjcfoiubnd"
 path.s3tc="res://.godot/imported/mundo_Translucent_Glass_Tinted-Translucent_Glass_Tinted]1.png-8e8d739d648d6134aa4669eb8028da37.s3tc.ctex"
+path.etc2="res://.godot/imported/mundo_Translucent_Glass_Tinted-Translucent_Glass_Tinted]1.png-8e8d739d648d6134aa4669eb8028da37.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://rcsim/art/mundo_Translucent_Glass_Tinted-Translucent_Glass_Tinted]1.png"
-dest_files=["res://.godot/imported/mundo_Translucent_Glass_Tinted-Translucent_Glass_Tinted]1.png-8e8d739d648d6134aa4669eb8028da37.s3tc.ctex"]
+dest_files=["res://.godot/imported/mundo_Translucent_Glass_Tinted-Translucent_Glass_Tinted]1.png-8e8d739d648d6134aa4669eb8028da37.s3tc.ctex", "res://.godot/imported/mundo_Translucent_Glass_Tinted-Translucent_Glass_Tinted]1.png-8e8d739d648d6134aa4669eb8028da37.etc2.ctex"]
 
 [params]
 

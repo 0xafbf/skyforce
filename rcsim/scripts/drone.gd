@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends Model
 class_name Drone
 
 @export var propeller_fl: Node3D

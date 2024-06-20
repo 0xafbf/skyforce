@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdfq8ay7bg8qv"
 path.s3tc="res://.godot/imported/check.png-0b0f3fc237f429449a6b56d9f3c51f44.s3tc.ctex"
+path.etc2="res://.godot/imported/check.png-0b0f3fc237f429449a6b56d9f3c51f44.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/bricks/graphics/check.png"
-dest_files=["res://.godot/imported/check.png-0b0f3fc237f429449a6b56d9f3c51f44.s3tc.ctex"]
+dest_files=["res://.godot/imported/check.png-0b0f3fc237f429449a6b56d9f3c51f44.s3tc.ctex", "res://.godot/imported/check.png-0b0f3fc237f429449a6b56d9f3c51f44.etc2.ctex"]
 
 [params]
 

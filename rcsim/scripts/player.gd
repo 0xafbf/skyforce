@@ -6,7 +6,6 @@ enum InputMode {
 	Mode2,
 }
 
-@export var plane_path: NodePath
 @onready var plane: Node3D = get_parent()
 @export var input_mode: InputMode = InputMode.Mode2
 

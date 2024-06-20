@@ -1,10 +1,13 @@
 class_name SFInput
 extends Node
 
-@export var left_y: float = 0
-@export var right_y: float = 0
-@export var left_x: float = 0
-@export var right_x: float = 0
+var left_y: float = 0
+var right_y: float = 0
+var left_x: float = 0
+var right_x: float = 0
+
+@export var touch_left: TouchArea
+@export var touch_right: TouchArea
 
 
 enum ControlType {
@@ -12,16 +15,32 @@ enum ControlType {
 	TX12,
 }
 
-@export var control_type: ControlType
-@export var device: int = 0
+var control_type: ControlType
+var device: int
+
+func set_device(in_device: int):
+	device = in_device
+	if device == -1:
+		print("setting touch device")
+	else:
+		var control_name = Input.get_joy_name(device)
+		if control_name == "Radiomaster TX12 Joystick":
+			control_type = ControlType.TX12
+		else:
+			control_type = ControlType.XINPUT
+
 
 @warning_ignore("int_as_enum_without_cast")
 func _process(_delta: float) -> void:
-	var control_name = Input.get_joy_name(device)
-	if control_name == "Radiomaster TX12 Joystick":
-		control_type = ControlType.TX12
-	else:
-		control_type = ControlType.XINPUT
+	if device == -1:
+		if touch_left:
+			left_x = touch_left.analog_value.x
+			left_y = touch_left.analog_value.y
+		if touch_right:
+			right_x = touch_right.analog_value.x
+			right_y = touch_right.analog_value.y
+
+		return
 
 	if control_type == ControlType.TX12:
 		left_x = Input.get_joy_axis(device, 3)

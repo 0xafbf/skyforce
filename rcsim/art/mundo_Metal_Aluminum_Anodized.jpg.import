@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://evsydv6wa6w0"
 path.s3tc="res://.godot/imported/mundo_Metal_Aluminum_Anodized.jpg-71de437eb5cf293fbc087b84dd4c91e0.s3tc.ctex"
+path.etc2="res://.godot/imported/mundo_Metal_Aluminum_Anodized.jpg-71de437eb5cf293fbc087b84dd4c91e0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://rcsim/art/mundo_Metal_Aluminum_Anodized.jpg"
-dest_files=["res://.godot/imported/mundo_Metal_Aluminum_Anodized.jpg-71de437eb5cf293fbc087b84dd4c91e0.s3tc.ctex"]
+dest_files=["res://.godot/imported/mundo_Metal_Aluminum_Anodized.jpg-71de437eb5cf293fbc087b84dd4c91e0.s3tc.ctex", "res://.godot/imported/mundo_Metal_Aluminum_Anodized.jpg-71de437eb5cf293fbc087b84dd4c91e0.etc2.ctex"]
 
 [params]
 

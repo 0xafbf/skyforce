@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cacgfoyujh5lr"]
+[gd_scene load_steps=7 format=3 uid="uid://cacgfoyujh5lr"]
 
 [ext_resource type="PackedScene" uid="uid://b6voggfs408vn" path="res://rcsim/scenes/osd.tscn" id="1_be11s"]
+[ext_resource type="Script" path="res://rcsim/scripts/player_client.gd" id="1_p8ibw"]
 [ext_resource type="Script" path="res://rcsim/scripts/input_display.gd" id="2_1wr1c"]
 [ext_resource type="Script" path="res://rcsim/scripts/input.gd" id="3_707gt"]
+[ext_resource type="PackedScene" uid="uid://drnro2u335kbr" path="res://rcsim/ui/touch_area.tscn" id="4_hro18"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utdsd"]
 draw_center = false
@@ -11,10 +13,12 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
-[node name="PlayerClient" type="Control"]
+[node name="PlayerClient" type="Control" node_paths=PackedStringArray("camera")]
 layout_mode = 3
 anchor_right = 0.5
 anchor_bottom = 1.0
+script = ExtResource("1_p8ibw")
+camera = NodePath("AspectRatioContainer/SubViewportContainer/SubViewport/Camera3D2")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -35,7 +39,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="AspectRatioContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(764, 573)
+size = Vector2i(604, 453)
 size_2d_override = Vector2i(320, 240)
 size_2d_override_stretch = true
 render_target_update_mode = 4
@@ -132,6 +136,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_utdsd")
 
-[node name="Input" type="Node" parent="."]
+[node name="TouchArea" parent="Viewport" instance=ExtResource("4_hro18")]
+layout_mode = 1
+
+[node name="TouchArea2" parent="Viewport" instance=ExtResource("4_hro18")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -295.0
+offset_right = 0.0
+grow_horizontal = 0
+
+[node name="Input" type="Node" parent="." node_paths=PackedStringArray("touch_left", "touch_right")]
 script = ExtResource("3_707gt")
-control_type = 1
+touch_left = NodePath("../Viewport/TouchArea")
+touch_right = NodePath("../Viewport/TouchArea2")

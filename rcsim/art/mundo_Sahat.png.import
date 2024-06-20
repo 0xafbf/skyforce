@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://db501ew40f2l1"
 path.s3tc="res://.godot/imported/mundo_Sahat.png-a908dce17a21af95635af5bd2c46420c.s3tc.ctex"
+path.etc2="res://.godot/imported/mundo_Sahat.png-a908dce17a21af95635af5bd2c46420c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://rcsim/art/mundo_Sahat.png"
-dest_files=["res://.godot/imported/mundo_Sahat.png-a908dce17a21af95635af5bd2c46420c.s3tc.ctex"]
+dest_files=["res://.godot/imported/mundo_Sahat.png-a908dce17a21af95635af5bd2c46420c.s3tc.ctex", "res://.godot/imported/mundo_Sahat.png-a908dce17a21af95635af5bd2c46420c.etc2.ctex"]
 
 [params]
 

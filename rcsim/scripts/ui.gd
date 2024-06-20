@@ -25,7 +25,7 @@ func _unhandled_input(event):
 			get_viewport().set_input_as_handled()
 
 func _process(delta):
-	
+
 	thrust_fill.anchor_top = 1 - remap_to_01(plane.in_thrust)
 	elevator_fill.anchor_top = 1 - remap_to_01(plane.in_elevator)
 	rudder_fill.anchor_right = remap_to_01(plane.in_rudder)
@@ -35,15 +35,15 @@ func _process(delta):
 	ailerons_text.text = "%.02f" % plane.in_ailerons
 	thrust_text.text   = "%.02f" % plane.in_thrust
 	rudder_text.text   = "%.02f" % plane.in_rudder
-	
+
 	if player.input_mode == Player.InputMode.Mode1:
 		label_mode.text = "Mode: 1"
 	elif player.input_mode == Player.InputMode.Mode2:
 		label_mode.text = "Mode: 2"
 	else:
 		label_mode.text = "Invalid Mode"
-	
+
 # func _draw():
-	
+
 func remap_to_01(value):
 	return value * 0.5 + 0.5

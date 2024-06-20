@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://k6i7wqg1dpx1"
 path.s3tc="res://.godot/imported/mundo_Wallpaper_Dog_Bone.jpg-3b524159dfd622c5dfa46b5360b80248.s3tc.ctex"
+path.etc2="res://.godot/imported/mundo_Wallpaper_Dog_Bone.jpg-3b524159dfd622c5dfa46b5360b80248.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://rcsim/art/mundo_Wallpaper_Dog_Bone.jpg"
-dest_files=["res://.godot/imported/mundo_Wallpaper_Dog_Bone.jpg-3b524159dfd622c5dfa46b5360b80248.s3tc.ctex"]
+dest_files=["res://.godot/imported/mundo_Wallpaper_Dog_Bone.jpg-3b524159dfd622c5dfa46b5360b80248.s3tc.ctex", "res://.godot/imported/mundo_Wallpaper_Dog_Bone.jpg-3b524159dfd622c5dfa46b5360b80248.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://n8haguy8o2a0"
 path.s3tc="res://.godot/imported/mundo_Stone_Pavers_Flagstone_Gray.png-3f47881bcd40c145230af2f2c949691e.s3tc.ctex"
+path.etc2="res://.godot/imported/mundo_Stone_Pavers_Flagstone_Gray.png-3f47881bcd40c145230af2f2c949691e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://rcsim/art/mundo_Stone_Pavers_Flagstone_Gray.png"
-dest_files=["res://.godot/imported/mundo_Stone_Pavers_Flagstone_Gray.png-3f47881bcd40c145230af2f2c949691e.s3tc.ctex"]
+dest_files=["res://.godot/imported/mundo_Stone_Pavers_Flagstone_Gray.png-3f47881bcd40c145230af2f2c949691e.s3tc.ctex", "res://.godot/imported/mundo_Stone_Pavers_Flagstone_Gray.png-3f47881bcd40c145230af2f2c949691e.etc2.ctex"]
 
 [params]
 

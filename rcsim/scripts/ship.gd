@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends Model
 class_name Airplane
 
 @export var thrust_scale: float = 10

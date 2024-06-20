@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://drnro2u335kbr"]
+
+[ext_resource type="Script" path="res://rcsim/scripts/touch_area.gd" id="1_df44i"]
+[ext_resource type="Texture2D" uid="uid://bac7cq5jqs4a5" path="res://icon.png" id="2_he4wm"]
+
+[node name="TouchArea" type="Panel" node_paths=PackedStringArray("range_ui", "stick_ui")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -213.0
+offset_right = 295.0
+grow_vertical = 0
+script = ExtResource("1_df44i")
+range_ui = NodePath("UIStickRange")
+stick_ui = NodePath("UIStickThumb")
+
+[node name="UIStickRange" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 74.0
+offset_right = 165.0
+offset_bottom = 138.0
+mouse_filter = 2
+texture = ExtResource("2_he4wm")
+
+[node name="UIStickThumb" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 134.0
+offset_top = 107.0
+offset_right = 134.0
+offset_bottom = 107.0
+metadata/_edit_group_ = true
+
+[node name="Image" type="TextureRect" parent="UIStickThumb"]
+modulate = Color(3, 3, 3, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_he4wm")
+expand_mode = 1
