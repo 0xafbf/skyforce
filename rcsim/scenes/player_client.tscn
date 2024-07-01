@@ -1,10 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cacgfoyujh5lr"]
+[gd_scene load_steps=10 format=3 uid="uid://cacgfoyujh5lr"]
 
 [ext_resource type="PackedScene" uid="uid://b6voggfs408vn" path="res://rcsim/scenes/osd.tscn" id="1_be11s"]
 [ext_resource type="Script" path="res://rcsim/scripts/player_client.gd" id="1_p8ibw"]
 [ext_resource type="Script" path="res://rcsim/scripts/input_display.gd" id="2_1wr1c"]
 [ext_resource type="Script" path="res://rcsim/scripts/input.gd" id="3_707gt"]
 [ext_resource type="PackedScene" uid="uid://drnro2u335kbr" path="res://rcsim/ui/touch_area.tscn" id="4_hro18"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_re821"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yckkw"]
+emission_shape = 1
+emission_sphere_radius = 3.92
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_nhhrn"]
+size = Vector2(0.02, 0.02)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utdsd"]
 draw_center = false
@@ -13,44 +23,47 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
-[node name="PlayerClient" type="Control" node_paths=PackedStringArray("camera")]
+[node name="PlayerClient" type="Control" node_paths=PackedStringArray("camera", "subviewport_container", "subviewport")]
 layout_mode = 3
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_p8ibw")
-camera = NodePath("AspectRatioContainer/SubViewportContainer/SubViewport/Camera3D2")
+camera = NodePath("SubViewportContainer/SubViewport/Camera3D2")
+subviewport_container = NodePath("SubViewportContainer")
+subviewport = NodePath("SubViewportContainer/SubViewport")
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 18.0
-offset_top = 20.0
-offset_right = -18.0
-offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-ratio = 1.3333
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="AspectRatioContainer"]
-layout_mode = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="AspectRatioContainer/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(604, 453)
-size_2d_override = Vector2i(320, 240)
-size_2d_override_stretch = true
+size = Vector2i(1600, 900)
 render_target_update_mode = 4
 
-[node name="Camera3D2" type="Camera3D" parent="AspectRatioContainer/SubViewportContainer/SubViewport"]
+[node name="Camera3D2" type="Camera3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.95655, -0.29157, 0, 0.29157, 0.95655, -2.62798, 0.0680878, 7.76856)
 current = true
 fov = 100.6
 far = 1000.0
 
-[node name="OSD" parent="AspectRatioContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_be11s")]
+[node name="Particles" type="GPUParticles3D" parent="SubViewportContainer/SubViewport/Camera3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_re821")
+amount = 193
+process_material = SubResource("ParticleProcessMaterial_yckkw")
+draw_pass_1 = SubResource("QuadMesh_nhhrn")
+
+[node name="OSD" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_be11s")]
+visible = false
 
 [node name="Viewport" type="Control" parent="."]
 layout_mode = 1
@@ -138,17 +151,47 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_utdsd")
 
 [node name="TouchArea" parent="Viewport" instance=ExtResource("4_hro18")]
 layout_mode = 1
+offset_top = -128.0
+offset_right = 200.0
 
 [node name="TouchArea2" parent="Viewport" instance=ExtResource("4_hro18")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -295.0
+offset_left = -211.0
+offset_top = -127.0
 offset_right = 0.0
 grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Viewport"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -157.0
+offset_top = 24.0
+offset_right = -8.0
+offset_bottom = 70.0
+grow_horizontal = 0
+
+[node name="BtnReset" type="Button" parent="Viewport/HBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="BtnSwitch" type="Button" parent="Viewport/HBoxContainer"]
+layout_mode = 2
+text = "Switch"
+
+[node name="BtnViewportMode" type="Button" parent="Viewport/HBoxContainer"]
+layout_mode = 2
+text = "Viewport"
 
 [node name="Input" type="Node" parent="." node_paths=PackedStringArray("touch_left", "touch_right")]
 script = ExtResource("3_707gt")
 touch_left = NodePath("../Viewport/TouchArea")
 touch_right = NodePath("../Viewport/TouchArea2")
+
+[connection signal="pressed" from="Viewport/HBoxContainer/BtnReset" to="." method="_on_btn_reset_pressed"]
+[connection signal="pressed" from="Viewport/HBoxContainer/BtnSwitch" to="." method="_on_btn_switch_pressed"]
+[connection signal="pressed" from="Viewport/HBoxContainer/BtnViewportMode" to="." method="_on_btn_viewport_mode_pressed"]

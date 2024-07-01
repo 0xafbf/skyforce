@@ -101,6 +101,7 @@ mesh = SubResource("CylinderMesh_5b503")
 
 [node name="Particles" type="GPUParticles3D" parent="Plane"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_bwtwi")
 amount = 193
 process_material = SubResource("ParticleProcessMaterial_rkg5v")
@@ -123,10 +124,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerClient" parent="GameClient" node_paths=PackedStringArray("target") instance=ExtResource("6_lwagp")]
+[node name="PlayerClient" parent="GameClient" node_paths=PackedStringArray("target", "models") instance=ExtResource("6_lwagp")]
 layout_mode = 2
 size_flags_horizontal = 3
 target = NodePath("../../Drone")
+models = [NodePath("../../Drone"), NodePath("../../Plane")]
 
 [node name="PlayerClient2" parent="GameClient" instance=ExtResource("6_lwagp")]
 visible = false

@@ -6,7 +6,7 @@ class_name TouchArea
 @export var free_y: bool = false
 @export var pull_center: bool = false
 
-var use_mouse: bool = false
+var use_mouse: bool = true
 
 @export var range_ui: Control
 @export var stick_ui: Control
@@ -26,8 +26,11 @@ func _ready() -> void:
 	set_pressed(false)
 
 func _gui_input(event: InputEvent) -> void:
+	if event.device == -1:
+		return
 	if use_mouse:
 		if event is InputEventMouseButton:
+
 			set_pressed(event.pressed)
 			set_start_pos(event.position)
 			set_current_pos(event.position)
@@ -68,5 +71,3 @@ func set_current_pos(in_pos: Vector2):
 
 const CLAMP_LOW := Vector2.ONE * -1
 const CLAMP_HIGH := Vector2.ONE
-
-

@@ -101,5 +101,3 @@ func _physics_process(_delta):
 
 	apply_force(-stabilizer_horz_mag * right, get_relative_pos(stabilizer_horz))
 	apply_force(-stabilizer_vert_mag * up, get_relative_pos(stabilizer_vert))
-
-

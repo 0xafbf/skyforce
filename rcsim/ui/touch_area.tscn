@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bac7cq5jqs4a5" path="res://icon.png" id="2_he4wm"]
 
 [node name="TouchArea" type="Panel" node_paths=PackedStringArray("range_ui", "stick_ui")]
+self_modulate = Color(1, 1, 1, 0.615686)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -15,6 +16,7 @@ range_ui = NodePath("UIStickRange")
 stick_ui = NodePath("UIStickThumb")
 
 [node name="UIStickRange" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.615686)
 layout_mode = 0
 offset_left = 101.0
 offset_top = 74.0
@@ -33,6 +35,7 @@ metadata/_edit_group_ = true
 
 [node name="Image" type="TextureRect" parent="UIStickThumb"]
 modulate = Color(3, 3, 3, 1)
+self_modulate = Color(1, 1, 1, 0.615686)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

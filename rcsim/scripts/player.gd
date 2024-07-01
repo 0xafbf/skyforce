@@ -34,4 +34,3 @@ func _process(_delta: float) -> void:
 		plane.in_thrust = input.left_y
 		plane.in_roll =   input.right_x
 		plane.in_pitch =  input.right_y
-

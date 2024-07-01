@@ -41,7 +41,7 @@ size = Vector3(0.02, 0.149, 0.05)
 [sub_resource type="BoxMesh" id="11"]
 size = Vector3(0.507, 0.023, 0.1)
 
-[node name="Plane" type="RigidBody3D"]
+[node name="Plane" type="RigidBody3D" node_paths=PackedStringArray("cam_target_firstperson")]
 transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, 0, 0, 0)
 mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_g3gb4")
@@ -56,6 +56,7 @@ stabilizer_vert_influence = 0.1
 roll_torque = 0.01
 pitch_torque = 0.01
 yaw_torque = 0.01
+cam_target_firstperson = NodePath("CameraTarget")
 
 [node name="ThrusterPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.029622, -0.731082)
@@ -126,3 +127,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.317627, 0.0927066, -0.07747
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.058068)
 mesh = SubResource("11")
 skeleton = NodePath("../..")
+
+[node name="CameraTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531832, 2.17572)

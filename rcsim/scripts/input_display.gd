@@ -22,4 +22,3 @@ func _process(_delta: float) -> void:
 		inverse_lerp(-1, 1, right_x),
 		inverse_lerp(1, -1, right_y),
 	)
-

@@ -52,4 +52,3 @@ func _process(_delta: float) -> void:
 		left_y = -Input.get_joy_axis(device, JOY_AXIS_LEFT_Y)
 		right_x = Input.get_joy_axis(device, JOY_AXIS_RIGHT_X)
 		right_y = -Input.get_joy_axis(device, JOY_AXIS_RIGHT_Y)
-

@@ -96,4 +96,3 @@ func _physics_process(_delta: float) -> void:
 
 	var torque2: Vector3 = -global_transform.basis.y * base_yaw
 	apply_torque(torque2)
-
