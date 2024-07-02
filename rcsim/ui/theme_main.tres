@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://boxk765ajfhes"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ex6l0"]
+
+[resource]
+PanelContainerPlayerConfigFocused/base_type = &"PanelContainer"
+PanelContainerPlayerConfigFocused/styles/panel = SubResource("StyleBoxFlat_ex6l0")

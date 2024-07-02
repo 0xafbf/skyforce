@@ -24,6 +24,7 @@ func set_device(in_device: int):
 		print("setting touch device")
 	else:
 		var control_name = Input.get_joy_name(device)
+		print("control name: %s" % control_name)
 		if control_name == "Radiomaster TX12 Joystick":
 			control_type = ControlType.TX12
 		else:

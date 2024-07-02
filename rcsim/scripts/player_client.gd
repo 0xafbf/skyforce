@@ -1,6 +1,7 @@
 extends Control
+class_name PlayerClient
 
-@export var target: Model
+var target: Model
 
 enum InputMode {
 	Mode1,

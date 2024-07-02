@@ -3,25 +3,27 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb1aga3yvmsj5"
-path="res://.godot/imported/export_add.png-f6fb3980fd3f48632375593c3938e9b9.ctex"
+path.s3tc="res://.godot/imported/export_add.png-f6fb3980fd3f48632375593c3938e9b9.s3tc.ctex"
+path.etc2="res://.godot/imported/export_add.png-f6fb3980fd3f48632375593c3938e9b9.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/tools/export_add.png"
-dest_files=["res://.godot/imported/export_add.png-f6fb3980fd3f48632375593c3938e9b9.ctex"]
+dest_files=["res://.godot/imported/export_add.png-f6fb3980fd3f48632375593c3938e9b9.s3tc.ctex", "res://.godot/imported/export_add.png-f6fb3980fd3f48632375593c3938e9b9.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +33,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

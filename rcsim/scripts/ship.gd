@@ -6,9 +6,6 @@ class_name Airplane
 @export var lift_scale: float = 0.1
 @export var drag_scale: float = 0.1
 
-@export var gl_path: NodePath
-@onready var gl: Node # ImmediateMesh = get_node(gl_path)
-
 @onready var aileron_l = $AileronLPivot
 @onready var aileron_r = $AileronRPivot
 @onready var pivot_rudder = $RudderPivot
@@ -59,14 +56,17 @@ func get_relative_pos(target: Node3D) -> Vector3:
 	return target.global_transform.origin - global_transform.origin
 
 func _physics_process(_delta):
+	var start_velocity := linear_velocity
+
 	var tx_basis := transform.basis
 	var forward: Vector3 = tx_basis * Vector3.FORWARD
 	var up: Vector3      = tx_basis * Vector3.UP
 	var right: Vector3   = tx_basis * Vector3.RIGHT
 
 	var thrust_mag = in_thrust * thrust_scale
+	print(thrust_mag)
 	thrust_vector = thrust_mag * forward
-	#print("adding force:%s" % thrust_vector)
+	print("adding force:%s" % thrust_vector)
 	apply_force(thrust_vector, get_relative_pos(thruster_visual))
 
 	var velocity = linear_velocity
@@ -74,7 +74,8 @@ func _physics_process(_delta):
 
 
 	var drag = velocity * drag_scale * -1
-	apply_force(drag)
+	print("adding drag:%s" % drag)
+	#apply_force(drag)
 
 	var remaining_velocity = (1.0 - drag_scale) * velocity_forward
 
@@ -101,3 +102,7 @@ func _physics_process(_delta):
 
 	apply_force(-stabilizer_horz_mag * right, get_relative_pos(stabilizer_horz))
 	apply_force(-stabilizer_vert_mag * up, get_relative_pos(stabilizer_vert))
+
+	print(linear_velocity)
+	if linear_velocity.length() > 100:
+		pass

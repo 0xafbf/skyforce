@@ -1,136 +1,57 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq5jlkukn62b5"]
+[gd_scene load_steps=6 format=3 uid="uid://bq5jlkukn62b5"]
 
-[ext_resource type="PackedScene" uid="uid://drib26awjkgd5" path="res://rcsim/Plane.tscn" id="1_leiuk"]
-[ext_resource type="PackedScene" uid="uid://bejf7jl0qljxf" path="res://rcsim/drone.tscn" id="2_oop3u"]
+[ext_resource type="Script" path="res://rcsim/scripts/ui/ui_player_join.gd" id="4_74nxg"]
+[ext_resource type="PackedScene" uid="uid://djmsubrpbm5wi" path="res://rcsim/ui/player_setup.tscn" id="4_n4cf7"]
 [ext_resource type="PackedScene" uid="uid://cacgfoyujh5lr" path="res://rcsim/scenes/player_client.tscn" id="6_lwagp"]
 [ext_resource type="Script" path="res://rcsim/scripts/dpi_scaler.gd" id="7_fg60s"]
 [ext_resource type="PackedScene" uid="uid://pmjlp8cmu6m4" path="res://rcsim/levels/k_town.tscn" id="7_u60cw"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_5b503"]
-top_radius = 0.0
-bottom_radius = 0.119
-height = 0.4
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwtwi"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rkg5v"]
-emission_shape = 1
-emission_sphere_radius = 3.92
-gravity = Vector3(0, 0, 0)
-
-[sub_resource type="QuadMesh" id="QuadMesh_ia6nm"]
-size = Vector2(0.02, 0.02)
 
 [node name="Entry" type="Node"]
 
 [node name="DPIScaler" type="Node" parent="."]
 script = ExtResource("7_fg60s")
 
-[node name="MainMenu" type="Control" parent="."]
-visible = false
+[node name="World" parent="." instance=ExtResource("7_u60cw")]
+
+[node name="MainMenu" type="Control" parent="." node_paths=PackedStringArray("player_setup_container", "level", "game_client")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_74nxg")
+player_setup_template = ExtResource("4_n4cf7")
+player_setup_container = NodePath("Container")
+level = NodePath("../World")
+game_client = NodePath("../GameClient")
+player_client_template = ExtResource("6_lwagp")
 
-[node name="Control" type="Control" parent="MainMenu"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu"]
+[node name="Container" type="Panel" parent="MainMenu"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -562.0
-offset_top = -216.0
-offset_right = 562.0
-offset_bottom = -77.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 189.0
+offset_top = 128.0
+offset_right = -253.0
+offset_bottom = -107.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 91
-bbcode_enabled = true
-text = "[center]SkyForce[/center]"
-autowrap_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+[node name="NewPlayerInputGrab" type="Control" parent="MainMenu"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -146.5
-offset_top = 51.0
-offset_right = 146.5
-offset_bottom = 199.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_group_ = true
-
-[node name="SinglePlayer" type="Button" parent="MainMenu/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 46
-text = "Single Player"
-
-[node name="TwoPlayer" type="Button" parent="MainMenu/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 46
-text = "Two Player"
-
-[node name="Plane" parent="." instance=ExtResource("1_leiuk")]
-transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, 0.180958, 0.563583, 7.60771)
-mass = 1.01
-can_sleep = false
-lift_scale = 2.0
-drag_scale = 0.01
-aileron_rate = 11.199
-roll_torque = 0.05
-pitch_torque = 0.05
-yaw_torque = 0.05
-thruster_angular_speed = 4000.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0526131, -0.999362)
-mesh = SubResource("CylinderMesh_5b503")
-
-[node name="Particles" type="GPUParticles3D" parent="Plane"]
-transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0)
-visible = false
-material_override = SubResource("StandardMaterial3D_bwtwi")
-amount = 193
-process_material = SubResource("ParticleProcessMaterial_rkg5v")
-draw_pass_1 = SubResource("QuadMesh_ia6nm")
-
-[node name="Drone" parent="." instance=ExtResource("2_oop3u")]
-transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, -2.62798, 0.00600052, 7.74716)
-mass = 0.4
-flight_mode = 1
-
-[node name="Drone2" parent="." instance=ExtResource("2_oop3u")]
-transform = Transform3D(1.00491, 0, 0, 0, 1.00491, 0, 0, 0, 1.00491, -1.17743, 0.00600052, 7.74716)
-
-[node name="World" parent="." instance=ExtResource("7_u60cw")]
-
-[node name="GameClient" type="HBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
-[node name="PlayerClient" parent="GameClient" node_paths=PackedStringArray("target", "models") instance=ExtResource("6_lwagp")]
-layout_mode = 2
-size_flags_horizontal = 3
-target = NodePath("../../Drone")
-models = [NodePath("../../Drone"), NodePath("../../Plane")]
-
-[node name="PlayerClient2" parent="GameClient" instance=ExtResource("6_lwagp")]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="GameClient" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

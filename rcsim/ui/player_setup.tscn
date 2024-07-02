@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://djmsubrpbm5wi"]
+
+[ext_resource type="Script" path="res://rcsim/scripts/ui/ui_player.gd" id="1_fik3c"]
+[ext_resource type="Script" path="res://rcsim/scripts/ui/ui_player_optionbox.gd" id="2_masic"]
+[ext_resource type="Resource" uid="uid://tnesrso0rjlg" path="res://rcsim/models/drone_data.tres" id="3_8152y"]
+[ext_resource type="Script" path="res://rcsim/scripts/ui/ui_player_button.gd" id="3_fjw64"]
+[ext_resource type="Resource" uid="uid://40f7hf3gyddr" path="res://rcsim/models/plane_data.tres" id="4_uedfh"]
+
+[node name="PlayerSetup" type="Panel" node_paths=PackedStringArray("options")]
+offset_right = 575.0
+offset_bottom = 436.0
+script = ExtResource("1_fik3c")
+options = [NodePath("VBoxContainer/OptionModel"), NodePath("VBoxContainer/OptionReady")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 32.0
+offset_right = 323.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Player 1 arstrst"
+
+[node name="OptionModel" type="PanelContainer" parent="VBoxContainer" node_paths=PackedStringArray("option_label")]
+layout_mode = 2
+script = ExtResource("2_masic")
+option_name = "Modelo"
+options = Array[Resource]([ExtResource("3_8152y"), ExtResource("4_uedfh")])
+option_label = NodePath("HBoxContainer/Label2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/OptionModel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/OptionModel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Model"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/OptionModel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Plane"
+horizontal_alignment = 1
+
+[node name="OptionReady" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_fjw64")
+
+[node name="Label" type="Label" parent="VBoxContainer/OptionReady"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ready"
+horizontal_alignment = 1
+
+[connection signal="button_pressed" from="VBoxContainer/OptionReady" to="." method="_on_option_ready_button_pressed"]

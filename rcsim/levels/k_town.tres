@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://5ns7ipjx3dj8"]
+
+[ext_resource type="Script" path="res://rcsim/scripts/data/level_data.gd" id="1_0ox4h"]
+
+[resource]
+script = ExtResource("1_0ox4h")
+name = "K-Town"
+description = "Small town with a park, an arch and a small square."
+level_path = "res://rcsim/levels/k_town.tscn"
