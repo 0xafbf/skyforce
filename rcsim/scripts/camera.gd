@@ -64,4 +64,3 @@ func _process(delta):
 	#look_at(get_parent().translation, parent.transform.basis * Vector3.UP)
 	look_at(target.position, Vector3.UP)
 	
-

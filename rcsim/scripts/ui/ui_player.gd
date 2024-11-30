@@ -24,6 +24,7 @@ var is_ready: bool = false
 
 
 func _ready() -> void:
+	print("ready 1234")
 	set_focused_option(current_option)
 
 
@@ -72,6 +73,7 @@ func move_cursor(offset: int) -> void:
 
 
 func _on_option_ready_button_pressed() -> void:
+	print("ariesntoraien")
 	model_data = $'VBoxContainer/OptionModel'.options[$VBoxContainer/OptionModel.current_option]
 	is_ready = true
 	player_ready.emit()

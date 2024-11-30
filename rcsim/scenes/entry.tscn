@@ -1,19 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq5jlkukn62b5"]
+[gd_scene load_steps=10 format=3 uid="uid://bq5jlkukn62b5"]
 
+[ext_resource type="Script" path="res://rcsim/scripts/entry.gd" id="1_ao217"]
 [ext_resource type="Script" path="res://rcsim/scripts/ui/ui_player_join.gd" id="4_74nxg"]
 [ext_resource type="PackedScene" uid="uid://djmsubrpbm5wi" path="res://rcsim/ui/player_setup.tscn" id="4_n4cf7"]
 [ext_resource type="PackedScene" uid="uid://cacgfoyujh5lr" path="res://rcsim/scenes/player_client.tscn" id="6_lwagp"]
 [ext_resource type="Script" path="res://rcsim/scripts/dpi_scaler.gd" id="7_fg60s"]
+[ext_resource type="PackedScene" uid="uid://bkqyrc1mmwwui" path="res://rcsim/ui_hmd.tscn" id="7_jiy1n"]
 [ext_resource type="PackedScene" uid="uid://pmjlp8cmu6m4" path="res://rcsim/levels/k_town.tscn" id="7_u60cw"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_2klgc"]
+viewport_path = NodePath("XROrigin3D/XRCamera3D/SubViewport")
+
+[sub_resource type="BoxMesh" id="BoxMesh_6umti"]
+size = Vector3(0.2, 0.2, 0.2)
+
 [node name="Entry" type="Node"]
+script = ExtResource("1_ao217")
 
 [node name="DPIScaler" type="Node" parent="."]
 script = ExtResource("7_fg60s")
 
 [node name="World" parent="." instance=ExtResource("7_u60cw")]
 
-[node name="MainMenu" type="Control" parent="." node_paths=PackedStringArray("player_setup_container", "level", "game_client")]
+[node name="GameClient" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.72465, 0, 2.5083)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="XROrigin3D/XRCamera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.09)
+pixel_size = 0.002
+texture = SubResource("ViewportTexture_2klgc")
+
+[node name="SubViewport" type="SubViewport" parent="XROrigin3D/XRCamera3D"]
+size = Vector2i(1280, 720)
+
+[node name="UiHmd" parent="XROrigin3D/XRCamera3D/SubViewport" instance=ExtResource("7_jiy1n")]
+
+[node name="MainMenu" type="Control" parent="XROrigin3D/XRCamera3D/SubViewport" node_paths=PackedStringArray("player_setup_container", "level", "game_client")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,11 +56,11 @@ grow_vertical = 2
 script = ExtResource("4_74nxg")
 player_setup_template = ExtResource("4_n4cf7")
 player_setup_container = NodePath("Container")
-level = NodePath("../World")
-game_client = NodePath("../GameClient")
+level = NodePath("../../../../World")
+game_client = NodePath("../../../../GameClient")
 player_client_template = ExtResource("6_lwagp")
 
-[node name="Container" type="Panel" parent="MainMenu"]
+[node name="Container" type="Panel" parent="XROrigin3D/XRCamera3D/SubViewport/MainMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +72,7 @@ offset_bottom = -107.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NewPlayerInputGrab" type="Control" parent="MainMenu"]
+[node name="NewPlayerInputGrab" type="Control" parent="XROrigin3D/XRCamera3D/SubViewport/MainMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,10 +81,19 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="GameClient" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="XRController3D" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.943272, 0.959418, 0)
+tracker = &"left_hand"
+show_when_tracked = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/XRController3D"]
+mesh = SubResource("BoxMesh_6umti")
+
+[node name="XRController3D2" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.922505, 0.677669, 0)
+tracker = &"right_hand"
+show_when_tracked = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="XROrigin3D/XRController3D2"]
+mesh = SubResource("BoxMesh_6umti")
+skeleton = NodePath("../../XRController3D")

@@ -73,6 +73,7 @@ func relayout_views(views: Array[Control]):
 @export var player_client_template: PackedScene
 
 func on_player_ready() -> void:
+	print("ariesntoraien")
 	for player in player_setup_views:
 		if not player.is_ready:
 			return
