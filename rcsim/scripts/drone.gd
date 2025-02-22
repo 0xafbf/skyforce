@@ -42,6 +42,7 @@ enum FlightMode {
 func _process(delta: float) -> void:
 	#var propeller_base := propeller_angularspeed_max * in_thrust
 	var propeller_delta := propeller_angularspeed_max * delta
+	propeller_speed.resize(4)
 	propeller_fl.rotate(Vector3.UP, propeller_speed[0] * propeller_delta)
 	propeller_fr.rotate(Vector3.UP, propeller_speed[1] * propeller_delta)
 	propeller_rl.rotate(Vector3.UP, propeller_speed[2] * propeller_delta)
