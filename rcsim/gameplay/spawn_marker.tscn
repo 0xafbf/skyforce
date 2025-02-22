@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhb8n58g7n33l"]
 
 [ext_resource type="Script" path="res://rcsim/scripts/spawn_marker.gd" id="1_3iaoq"]
-[ext_resource type="Texture2D" uid="uid://cb1aga3yvmsj5" path="res://assets/tools/export_add.png" id="2_bfrbv"]
+[ext_resource type="Texture2D" uid="uid://di87l3dmsy5bg" path="res://rcsim/art/mundo_d.png" id="2_k42cf"]
 
 [node name="SpawnMarker" type="Node3D"]
 script = ExtResource("1_3iaoq")
@@ -14,4 +14,4 @@ gizmo_extents = 0.5
 transform = Transform3D(0.470444, 0, 0, 0, 1, 0, 0, 0, 0.470444, 0, 0, 0)
 axis = 1
 double_sided = false
-texture = ExtResource("2_bfrbv")
+texture = ExtResource("2_k42cf")

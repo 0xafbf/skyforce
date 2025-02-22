@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtnhv34cyormv"]
+
+[ext_resource type="Script" path="res://rcsim/ui/controller_setup/ui_config_step.gd" id="1_wxbib"]
+
+[node name="ConfigStep" type="PanelContainer" node_paths=PackedStringArray("label_step_name", "label_step_status")]
+script = ExtResource("1_wxbib")
+label_step_name = NodePath("VBoxContainer/LabelStepName")
+label_step_status = NodePath("VBoxContainer/LabelStepStatus")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LabelStepName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Configure BACK Button"
+
+[node name="LabelStepStatus" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Step status..."

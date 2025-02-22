@@ -3,9 +3,57 @@ extends Control
 @export var player_setup_template: PackedScene
 @export var player_setup_container: Control
 
+@export var screen_intro: Control
+@export var screen_main: Control
+@export var screen_setup_controller: Control
+
 @export var level: Level
 
 var player_setup_views: Array[Control]
+
+enum MainMenuState {
+	INTRO,
+	CONTROL_SETUP,
+	MAIN,
+}
+
+var main_menu_state: MainMenuState = MainMenuState.INTRO
+var is_intro_screen: bool = true
+
+func _ready() -> void:
+	await get_tree().create_timer(1.0).timeout
+	InputManager.push_input_handler(self)
+
+func handle_input(event: InputEvent) -> void:
+	if main_menu_state == MainMenuState.INTRO:
+		if event is InputEventJoypadMotion:
+			get_viewport().set_input_as_handled()
+			return # we don't care about motion events in intro screen
+		if event.pressed:
+			var device := event.device
+			var joy_info := Input.get_joy_info(device)
+			var xinput_index: Variant = joy_info.get("xinput_index")
+			if xinput_index != null:
+				login(device)
+			else:
+				start_config(device)
+		get_viewport().set_input_as_handled()
+	elif main_menu_state == MainMenuState.CONTROL_SETUP:
+		# at this state, we should never get these inputs because the config panel receives them
+		assert(0)
+	else:
+		print("input")
+		
+func login(device: int) -> void:
+	PlayerManager.login_player(device)
+	screen_intro.visible = false
+	screen_main.activate()
+	
+
+func start_config(device: int) -> void:
+	screen_setup_controller.start_controller_setup(device)
+	
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton:

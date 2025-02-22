@@ -1,19 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq5jlkukn62b5"]
+[gd_scene load_steps=10 format=3 uid="uid://bq5jlkukn62b5"]
 
 [ext_resource type="Script" path="res://rcsim/scripts/ui/ui_player_join.gd" id="4_74nxg"]
 [ext_resource type="PackedScene" uid="uid://djmsubrpbm5wi" path="res://rcsim/ui/player_setup.tscn" id="4_n4cf7"]
+[ext_resource type="Script" path="res://rcsim/ui/main_menu/ui_screen_main.gd" id="5_6unyy"]
 [ext_resource type="PackedScene" uid="uid://cacgfoyujh5lr" path="res://rcsim/scenes/player_client.tscn" id="6_lwagp"]
-[ext_resource type="Script" path="res://rcsim/scripts/dpi_scaler.gd" id="7_fg60s"]
+[ext_resource type="PackedScene" uid="uid://bv3f01gdmba8j" path="res://rcsim/ui/main_menu/player_nameplate.tscn" id="6_o74qp"]
+[ext_resource type="PackedScene" uid="uid://dtnhv34cyormv" path="res://rcsim/ui/controller_setup/ui_config_step.tscn" id="7_8sx0g"]
+[ext_resource type="Script" path="res://rcsim/ui/controller_setup/screen_setup_controller.gd" id="7_jld7d"]
 [ext_resource type="PackedScene" uid="uid://pmjlp8cmu6m4" path="res://rcsim/levels/k_town.tscn" id="7_u60cw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62c36"]
 
 [node name="Entry" type="Node"]
 
-[node name="DPIScaler" type="Node" parent="."]
-script = ExtResource("7_fg60s")
-
 [node name="World" parent="." instance=ExtResource("7_u60cw")]
 
-[node name="MainMenu" type="Control" parent="." node_paths=PackedStringArray("player_setup_container", "level", "game_client")]
+[node name="MainMenu" type="Control" parent="." node_paths=PackedStringArray("player_setup_container", "screen_intro", "screen_main", "screen_setup_controller", "level", "game_client")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +25,9 @@ grow_vertical = 2
 script = ExtResource("4_74nxg")
 player_setup_template = ExtResource("4_n4cf7")
 player_setup_container = NodePath("Container")
+screen_intro = NodePath("ScreenIntro")
+screen_main = NodePath("ScreenMain")
+screen_setup_controller = NodePath("ScreenSetupController")
 level = NodePath("../World")
 game_client = NodePath("../GameClient")
 player_client_template = ExtResource("6_lwagp")
@@ -48,6 +53,303 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
+[node name="ScreenIntro" type="Control" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScreenIntro"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -258.0
+offset_right = 512.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 161
+bbcode_enabled = true
+text = "[center]SKYFORCE"
+
+[node name="Label" type="Label" parent="MainMenu/ScreenIntro"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.5
+offset_top = 142.0
+offset_right = 184.5
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 46
+text = "Presiona cualquier boton"
+horizontal_alignment = 1
+
+[node name="ScreenMain" type="Control" parent="MainMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_6unyy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ScreenMain"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -351.0
+offset_right = 512.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 161
+bbcode_enabled = true
+text = "[center]SKYFORCE"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/ScreenMain"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -536.0
+offset_top = -99.0
+offset_right = -94.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonPlayMatch" type="Button" parent="MainMenu/ScreenMain/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play Match"
+
+[node name="ButtonPlayMatch2" type="Button" parent="MainMenu/ScreenMain/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Garage"
+
+[node name="ButtonPlayMatch3" type="Button" parent="MainMenu/ScreenMain/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="ButtonPlayMatch4" type="Button" parent="MainMenu/ScreenMain/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="PlayerBottomPanel" type="HBoxContainer" parent="MainMenu/ScreenMain"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 208.0
+offset_top = -94.0
+offset_right = -208.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayerNameplate" parent="MainMenu/ScreenMain/PlayerBottomPanel" instance=ExtResource("6_o74qp")]
+layout_mode = 2
+
+[node name="PlayerNameplate2" parent="MainMenu/ScreenMain/PlayerBottomPanel" instance=ExtResource("6_o74qp")]
+layout_mode = 2
+
+[node name="PlayerNameplate3" parent="MainMenu/ScreenMain/PlayerBottomPanel" instance=ExtResource("6_o74qp")]
+layout_mode = 2
+
+[node name="PlayerNameplate4" parent="MainMenu/ScreenMain/PlayerBottomPanel" instance=ExtResource("6_o74qp")]
+layout_mode = 2
+
+[node name="ScreenSetupController" type="Control" parent="MainMenu" node_paths=PackedStringArray("label_hold_to_exit")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_jld7d")
+label_hold_to_exit = NodePath("PanelContainer/VBoxContainer/LabelExit")
+
+[node name="PanelContainer" type="Panel" parent="MainMenu/ScreenSetupController"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -625.0
+offset_top = -385.0
+offset_right = 668.0
+offset_bottom = 419.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_62c36")
+
+[node name="Label" type="Label" parent="MainMenu/ScreenSetupController/PanelContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -422.5
+offset_top = 47.0
+offset_right = 423.5
+offset_bottom = 112.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 41
+text = "Set up your controller"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MainMenu/ScreenSetupController/PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.111
+anchor_top = 0.223
+anchor_right = 0.409
+anchor_bottom = 0.311
+offset_left = -0.52301
+offset_top = -0.0200043
+offset_right = 0.162964
+offset_bottom = -0.140015
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 41
+text = "Steps:"
+
+[node name="ConfigurationSteps" type="VBoxContainer" parent="MainMenu/ScreenSetupController/PanelContainer"]
+layout_mode = 0
+anchor_left = 0.116009
+anchor_top = 0.313514
+anchor_right = 0.426141
+anchor_bottom = 0.732432
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfigStep1" parent="MainMenu/ScreenSetupController/PanelContainer/ConfigurationSteps" instance=ExtResource("7_8sx0g")]
+layout_mode = 2
+step_name = "Configure BACK button."
+
+[node name="ConfigStep2" parent="MainMenu/ScreenSetupController/PanelContainer/ConfigurationSteps" instance=ExtResource("7_8sx0g")]
+layout_mode = 2
+step_name = "Configure OK button."
+
+[node name="ConfigStep3" parent="MainMenu/ScreenSetupController/PanelContainer/ConfigurationSteps" instance=ExtResource("7_8sx0g")]
+layout_mode = 2
+step_name = "Configure Left Stick."
+
+[node name="ConfigStep4" parent="MainMenu/ScreenSetupController/PanelContainer/ConfigurationSteps" instance=ExtResource("7_8sx0g")]
+layout_mode = 2
+step_name = "Configure Right Stick."
+
+[node name="ConfigStep5" parent="MainMenu/ScreenSetupController/PanelContainer/ConfigurationSteps" instance=ExtResource("7_8sx0g")]
+layout_mode = 2
+step_name = "Select Flight Mode"
+
+[node name="Label3" type="Label" parent="MainMenu/ScreenSetupController/PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.546
+anchor_top = 0.234
+anchor_right = 0.845
+anchor_bottom = 0.322
+offset_left = 0.0219727
+offset_top = -0.160004
+offset_right = -0.585083
+offset_bottom = -0.280014
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 41
+text = "Instruction"
+
+[node name="Panel" type="Panel" parent="MainMenu/ScreenSetupController/PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53519
+anchor_top = 0.337065
+anchor_right = 0.853828
+anchor_bottom = 0.784826
+offset_left = -6.10352e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/ScreenSetupController/PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_lock_ = true
+
+[node name="Step1Description" type="RichTextLabel" parent="MainMenu/ScreenSetupController/PanelContainer/Panel/MarginContainer"]
+visible = false
+layout_mode = 2
+text = "Step 1: Configure BACK Button
+
+Press two times the button that you want to use as BACK button.
+Top left shoulder button is recommended, in a controller like TX12 button A is a good option.
+
+DirectInput BTN0 detected
+Press again to bind"
+
+[node name="Step1Description2" type="RichTextLabel" parent="MainMenu/ScreenSetupController/PanelContainer/Panel/MarginContainer"]
+layout_mode = 2
+text = "Step 1: Configure OK Button
+
+Press two times the button that you want to use as OK button.
+Top left shoulder button is recommended, in a controller like TX12 button A is a good option.
+
+DirectInput BTN0 detected
+Press again to bind"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/ScreenSetupController/PanelContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -416.5
+offset_top = -113.0
+offset_right = 417.5
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="LabelBack" type="Label" parent="MainMenu/ScreenSetupController/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Press Button <BACK> to go to previous step."
+horizontal_alignment = 1
+
+[node name="LabelExit" type="Label" parent="MainMenu/ScreenSetupController/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Press and hold any button/switch in ON state to quit configuration"
+horizontal_alignment = 1
+
 [node name="GameClient" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -55,3 +357,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true

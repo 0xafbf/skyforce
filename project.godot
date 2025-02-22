@@ -17,6 +17,11 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://rcsim/ui/skyforce_screenshot.png"
 config/icon="res://rcsim/ui/skyforce_icon.png"
 
+[autoload]
+
+InputManager="*res://rcsim/scripts/input/input_manager.gd"
+PlayerManager="*res://rcsim/scripts/player_manager.gd"
+
 [display]
 
 window/size/viewport_width=1600
