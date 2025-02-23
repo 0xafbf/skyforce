@@ -1,0 +1,207 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4k8hnb2f1u47"]
+
+[ext_resource type="Script" path="res://rcsim/ui/controller_setup/screen_setup_controller.gd" id="1_pt1n4"]
+[ext_resource type="Script" path="res://rcsim/ui/controller_setup/config_step_button.gd" id="2_7d7k7"]
+[ext_resource type="Script" path="res://rcsim/ui/controller_setup/config_step_axis.gd" id="3_f2mjs"]
+[ext_resource type="PackedScene" uid="uid://dtnhv34cyormv" path="res://rcsim/ui/controller_setup/ui_config_step.tscn" id="4_4t24b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62c36"]
+
+[node name="ScreenSetupController" type="Control" node_paths=PackedStringArray("label_hold_to_exit", "configuration_steps_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pt1n4")
+label_hold_to_exit = NodePath("PanelContainer/VBoxContainer/LabelExit")
+configuration_steps_container = NodePath("PanelContainer/ConfigurationSteps")
+
+[node name="ConfigSteps" type="Node" parent="."]
+
+[node name="ConfigBtnBack" type="Node" parent="ConfigSteps"]
+script = ExtResource("2_7d7k7")
+button = "back"
+
+[node name="ConfigBtnOk" type="Node" parent="ConfigSteps"]
+script = ExtResource("2_7d7k7")
+button = "ok"
+
+[node name="ConfigBtnAxisLeftX" type="Node" parent="ConfigSteps"]
+script = ExtResource("3_f2mjs")
+
+[node name="ConfigBtnAxisLeftY" type="Node" parent="ConfigSteps"]
+script = ExtResource("3_f2mjs")
+direction = 1
+
+[node name="ConfigBtnAxisRightX" type="Node" parent="ConfigSteps"]
+script = ExtResource("3_f2mjs")
+stick = 1
+
+[node name="ConfigBtnAxisRightY" type="Node" parent="ConfigSteps"]
+script = ExtResource("3_f2mjs")
+stick = 1
+direction = 1
+
+[node name="PanelContainer" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -625.0
+offset_top = -385.0
+offset_right = 668.0
+offset_bottom = 419.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_62c36")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -422.5
+offset_top = 47.0
+offset_right = 423.5
+offset_bottom = 112.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 41
+text = "Set up your controller"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.111
+anchor_top = 0.223
+anchor_right = 0.409
+anchor_bottom = 0.311
+offset_left = -0.52301
+offset_top = -0.0200043
+offset_right = 0.162964
+offset_bottom = -0.140015
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 41
+text = "Steps:"
+
+[node name="ConfigurationSteps" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 0
+anchor_left = 0.116009
+anchor_top = 0.313514
+anchor_right = 0.426141
+anchor_bottom = 0.732432
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfigStep1" parent="PanelContainer/ConfigurationSteps" instance=ExtResource("4_4t24b")]
+layout_mode = 2
+step_name = "Configure BACK button."
+
+[node name="ConfigStep2" parent="PanelContainer/ConfigurationSteps" instance=ExtResource("4_4t24b")]
+layout_mode = 2
+step_name = "Configure OK button."
+
+[node name="ConfigStep3" parent="PanelContainer/ConfigurationSteps" instance=ExtResource("4_4t24b")]
+layout_mode = 2
+step_name = "Configure Left Stick."
+
+[node name="ConfigStep4" parent="PanelContainer/ConfigurationSteps" instance=ExtResource("4_4t24b")]
+layout_mode = 2
+step_name = "Configure Right Stick."
+
+[node name="ConfigStep5" parent="PanelContainer/ConfigurationSteps" instance=ExtResource("4_4t24b")]
+layout_mode = 2
+step_name = "Select Flight Mode"
+
+[node name="ConfigStep6" parent="PanelContainer/ConfigurationSteps" instance=ExtResource("4_4t24b")]
+layout_mode = 2
+step_name = "Select Flight Mode"
+
+[node name="Label3" type="Label" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.546
+anchor_top = 0.234
+anchor_right = 0.845
+anchor_bottom = 0.322
+offset_left = 0.0219727
+offset_top = -0.160004
+offset_right = -0.585083
+offset_bottom = -0.280014
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 41
+text = "Instruction"
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53519
+anchor_top = 0.337065
+anchor_right = 0.853828
+anchor_bottom = 0.784826
+offset_left = -6.10352e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_lock_ = true
+
+[node name="Step1Description" type="RichTextLabel" parent="PanelContainer/Panel/MarginContainer"]
+visible = false
+layout_mode = 2
+text = "Step 1: Configure BACK Button
+
+Press two times the button that you want to use as BACK button.
+Top left shoulder button is recommended, in a controller like TX12 button A is a good option.
+
+DirectInput BTN0 detected
+Press again to bind"
+
+[node name="Step1Description2" type="RichTextLabel" parent="PanelContainer/Panel/MarginContainer"]
+layout_mode = 2
+text = "Step 1: Configure OK Button
+
+Press two times the button that you want to use as OK button.
+Top left shoulder button is recommended, in a controller like TX12 button A is a good option.
+
+DirectInput BTN0 detected
+Press again to bind"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -416.5
+offset_top = -113.0
+offset_right = 417.5
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="LabelBack" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Press Button <BACK> to go to previous step."
+horizontal_alignment = 1
+
+[node name="LabelExit" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Press and hold any button/switch in ON state to quit configuration"
+horizontal_alignment = 1
