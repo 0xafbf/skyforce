@@ -16,46 +16,13 @@ var axes_state: Dictionary
 var axes_time_pressed: Dictionary
 var btns_time_pressed: Dictionary
 
-var config_steps := [
-	{
-		"bind_type": "button",
-		"bind_id": "ui_back",
-		"bind_name": "BACK",
-	},
-	{
-		"bind_type": "button",
-		"bind_id": "ui_accept",
-		"bind_name": "OK",
-	},
-	{
-		"bind_type": "axis",
-		"bind_id": "left_x",
-		"bind_stick": "Left",
-		"bind_direction": "Right"
-	},
-	{
-		"bind_type": "axis",
-		"bind_id": "left_y",
-		"bind_stick": "Left",
-		"bind_direction": "Up"
-	},
-	{
-		"bind_type": "axis",
-		"bind_id": "right_x",
-		"bind_stick": "Right",
-		"bind_direction": "Right"
-	},
-	{
-		"bind_type": "axis",
-		"bind_id": "right_y",
-		"bind_stick": "Right",
-		"bind_direction": "Up"
-	},
-]
-
+var config_steps: Array[ConfigStepBase]
 
 func _ready() -> void:
 	set_process(false)
+	var config_steps_node := $ConfigSteps
+	for idx in config_steps_node.get_child_count():
+		config_steps.append(config_steps_node.get_child(idx))
 
 
 func start_controller_setup(in_device: int) -> void:
@@ -125,15 +92,64 @@ func _process(_delta: float) -> void:
 	else:
 		label_hold_to_exit.text = "Hold any button or axis to quit configuration."
 
-	process_step()
+var current_step: int = 0
+var last_binding: InputEvent
 
-var current_step: int
+var binding_back: InputEvent
+var binding_ok: InputEvent
+var binding_left_x: InputEventJoypadMotion
+var binding_left_y: InputEventJoypadMotion
+var binding_right_x: InputEventJoypadMotion
+var binding_right_y: InputEventJoypadMotion
+
+var bindings := [
+	{"name": "back", "field": "binding_back", "is_axis": false},
+	{"name": "ok", "field": "binding_ok", "is_axis": false},
+	{"name": "left_x", "field": "binding_left_x", "is_axis": true},
+	{"name": "left_y", "field": "binding_left_y", "is_axis": true},
+	{"name": "right_x", "field": "binding_right_x", "is_axis": true},
+	{"name": "right_y", "field": "binding_right_y", "is_axis": true},
+]
 
 
-func process_step():
-	return
+func step_handle_event_pressed(is_axis: bool, index: int, value: int = 0):
+	var new_binding: InputEvent
+
+
+	if is_axis:
+		new_binding = InputEventJoypadMotion.new()
+		new_binding.axis = index
+		new_binding.axis_value = value
+	else:
+		new_binding = InputEventJoypadButton.new()
+		new_binding.button_index = index
 	
 	
+	if new_binding.is_match(binding_back):
+		current_step -= 1
+		last_binding = null
+		if current_step == 0:
+			binding_back = null
+		return
+	
+	var step_binding_isaxis: bool = bindings[current_step].is_axis
+	
+	if step_binding_isaxis:
+		if new_binding is InputEventJoypadButton:
+			# for axis inputs we want joypad motion events
+			return
+	
+	var step_binding_name: String = bindings[current_step].name
+	if new_binding.is_match(last_binding):
+		print("confirmed %s as %s binding" % [last_binding, step_binding_name])
+		var step_binding_field: String = bindings[current_step].field
+		self[step_binding_field] = new_binding
+		current_step += 1
+		last_binding = null
+	else:
+		last_binding = new_binding
+		print("press again %s to bind as %s" % [new_binding, step_binding_name])
+
 
 func handle_input(event: InputEvent) -> void:
 	# consume all events always, while this UI is visible
@@ -166,6 +182,7 @@ func handle_pressed(is_axis: bool, index: int, value: int = 0):
 		axes_time_pressed[index] = Time.get_ticks_msec()
 	else:
 		btns_time_pressed[index] = Time.get_ticks_msec()
+	step_handle_event_pressed(is_axis, index, value)
 
 
 func handle_released(is_axis: bool, index: int):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq5jlkukn62b5"]
+[gd_scene load_steps=12 format=3 uid="uid://bq5jlkukn62b5"]
 
 [ext_resource type="Script" path="res://rcsim/scripts/ui/ui_player_join.gd" id="4_74nxg"]
 [ext_resource type="PackedScene" uid="uid://djmsubrpbm5wi" path="res://rcsim/ui/player_setup.tscn" id="4_n4cf7"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dtnhv34cyormv" path="res://rcsim/ui/controller_setup/ui_config_step.tscn" id="7_8sx0g"]
 [ext_resource type="Script" path="res://rcsim/ui/controller_setup/screen_setup_controller.gd" id="7_jld7d"]
 [ext_resource type="PackedScene" uid="uid://pmjlp8cmu6m4" path="res://rcsim/levels/k_town.tscn" id="7_u60cw"]
+[ext_resource type="Script" path="res://rcsim/ui/controller_setup/config_step_button.gd" id="8_xv7cw"]
+[ext_resource type="Script" path="res://rcsim/ui/controller_setup/config_step_axis.gd" id="9_724e2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62c36"]
 
@@ -191,6 +193,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_jld7d")
 label_hold_to_exit = NodePath("PanelContainer/VBoxContainer/LabelExit")
+
+[node name="ConfigSteps" type="Node" parent="MainMenu/ScreenSetupController"]
+
+[node name="ConfigBtnBack" type="Node" parent="MainMenu/ScreenSetupController/ConfigSteps"]
+script = ExtResource("8_xv7cw")
+button = "back"
+
+[node name="ConfigBtnOk" type="Node" parent="MainMenu/ScreenSetupController/ConfigSteps"]
+script = ExtResource("8_xv7cw")
+button = "ok"
+
+[node name="ConfigBtnAxisLeftX" type="Node" parent="MainMenu/ScreenSetupController/ConfigSteps"]
+script = ExtResource("9_724e2")
+
+[node name="ConfigBtnAxisLeftY" type="Node" parent="MainMenu/ScreenSetupController/ConfigSteps"]
+script = ExtResource("9_724e2")
+direction = 1
+
+[node name="ConfigBtnAxisRightX" type="Node" parent="MainMenu/ScreenSetupController/ConfigSteps"]
+script = ExtResource("9_724e2")
+stick = 1
+
+[node name="ConfigBtnAxisRightY" type="Node" parent="MainMenu/ScreenSetupController/ConfigSteps"]
+script = ExtResource("9_724e2")
+stick = 1
+direction = 1
 
 [node name="PanelContainer" type="Panel" parent="MainMenu/ScreenSetupController"]
 layout_mode = 1
