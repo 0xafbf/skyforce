@@ -1,7 +1,7 @@
 extends Control
 
 const INT_MAX := 0x7FFF_FFFF
-const ConfigStep := preload("res://rcsim/ui/controller_setup/ui_config_step.gd")
+const UIConfigStep := preload("res://rcsim/ui/controller_setup/ui_config_step.gd")
 
 ## After holding this time, we will show "keep pressing BTN to quit"
 @export var time_to_quit_warning: float = 1
@@ -48,7 +48,7 @@ func _ready() -> void:
 	
 	assert(configuration_steps_container.get_child_count() == len(bindings))
 	for step_idx in len(bindings):
-		var ui_config_step: ConfigStep = configuration_steps_container.get_child(step_idx)
+		var ui_config_step: UIConfigStep = configuration_steps_container.get_child(step_idx)
 		var binding: Dictionary = bindings[step_idx]
 		ui_config_step.set_binding_name(binding.name)
 		
@@ -122,6 +122,13 @@ func _process(_delta: float) -> void:
 	else:
 		label_hold_to_exit.text = "Hold any button or axis to quit configuration."
 
+func get_input_name(event: InputEvent) -> String:
+	if event is InputEventJoypadButton:
+		return "Button %d" % event.button_index
+	elif event is InputEventJoypadMotion:
+		return "Axis %d%s" % [event.axis, "+" if signf(event.axis_value) > 0 else "-"]
+	
+	return "INVALID"
 
 func step_handle_event_pressed(is_axis: bool, index: int, value: float = 0):
 	var new_binding: InputEvent
@@ -136,10 +143,6 @@ func step_handle_event_pressed(is_axis: bool, index: int, value: float = 0):
 	
 	if new_binding.is_match(binding_back):
 		set_step_active(current_step - 1)
-		current_step -= 1
-		last_binding = null
-		if current_step == 0:
-			binding_back = null
 		return
 	
 	var step_binding_isaxis: bool = bindings[current_step].is_axis
@@ -151,7 +154,8 @@ func step_handle_event_pressed(is_axis: bool, index: int, value: float = 0):
 	
 	var step_binding_name: String = bindings[current_step].name
 	if new_binding.is_match(last_binding):
-		print("confirmed %s as %s binding" % [last_binding, step_binding_name])
+		var ui_config_step: UIConfigStep = configuration_steps_container.get_child(current_step)
+		ui_config_step.mapping_name = get_input_name(last_binding)
 		var step_binding_field: String = bindings[current_step].field
 		self[step_binding_field] = new_binding
 		set_step_active(current_step + 1)
@@ -160,17 +164,23 @@ func step_handle_event_pressed(is_axis: bool, index: int, value: float = 0):
 		print("press again %s to bind as %s" % [new_binding, step_binding_name])
 
 func set_step_active(new_active_step: int) -> void:
-	current_step = new_active_step
+	if new_active_step == len(bindings):
+		print("finished config")
+		exit_config()
+
 	last_binding = null
+	current_step = new_active_step
+	if current_step == 0:
+		binding_back = null
 	
 	for step_idx in len(bindings):
-		var ui_config_step: ConfigStep = configuration_steps_container.get_child(step_idx)
-		if new_active_step < step_idx:
-			ui_config_step.set_status(ConfigStep.STATUS_FINISHED)
-		elif new_active_step == step_idx:
-			ui_config_step.set_status(ConfigStep.STATUS_CURRENT)
+		var ui_config_step: UIConfigStep = configuration_steps_container.get_child(step_idx)
+		if step_idx < new_active_step:
+			ui_config_step.set_status(UIConfigStep.STATUS_FINISHED)
+		elif step_idx == new_active_step:
+			ui_config_step.set_status(UIConfigStep.STATUS_CURRENT)
 		else:
-			ui_config_step.set_status(ConfigStep.STATUS_INACTIVE)
+			ui_config_step.set_status(UIConfigStep.STATUS_INACTIVE)
 			
 	
 
